@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "plugin:vue/essential",
+    "@vue/standard"
+  ],
+  "rules": {
+    "no-irregular-whitespace": "off",
+    "no-console": "off",
+    "no-debugger": "off"
+  },
+  "parserOptions": {
+    "parser": "babel-eslint"
+  }
+}

@@ -1,0 +1,55 @@
+/* source-sans-pro-regular */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: PingFang SC, Montserrat, Noto Sans SC, Helvetica, Arial,
+    sans-serif;
+  // font-family:"Montserrat","Noto Sans SC","Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei" !important;
+  font-size: 14px;
+  line-height: 1.15;
+  color: $text;
+  background-color: $background;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+//重置浏览器默认样式
+button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

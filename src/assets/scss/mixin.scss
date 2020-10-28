@@ -1,0 +1,188 @@
+/*------------------------函数生成样式---------------*/
+//flex
+@mixin flex-center($align-x:center, $align-y:center, $wrap:nowrap) {
+  display: flex;
+  justify-content: $align-x;
+  align-items: $align-y;
+  flex-wrap: $wrap;
+}
+
+// 几个居中position默认用relative，受到文档流约束，如果不需要约束，可以传入absolute
+// 水平居中
+@mixin h-center($position: relative) {
+  position: $position;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transform-origin: 50% 50%;
+}
+
+// 垂直居中
+@mixin v-center($position: relative) {
+  position: $position;
+  top: 50%;
+  transform: translate(0, -50%);
+  transform-origin: 50% 50%;
+}
+
+// 水平、垂直居中
+@mixin hv-center($position: relative) {
+  position: $position;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+//超出展示省略号
+//单行
+@mixin ellipsis($width:100%) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: $width;
+}
+
+//多行
+@mixin ellipsis-num($num:3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+
+// 文字大小
+@each $i in 12,
+14,
+16,
+18,
+20,
+24,
+32 {
+  .font-#{$i} {
+    font-size: #{$i}px !important;
+  }
+}
+
+// 文本对齐  ta-left
+@each $i in left,
+right,
+center {
+  .ta-#{$i} {
+    text-align: #{$i};
+  }
+}
+
+/* margin padding 20px以下的偶数class 用法： mt-10*/
+$i:20;
+
+@while $i>=0 {
+  .m-#{$i} {
+    margin: #{$i}px !important;
+  }
+
+  .mt-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+
+  .ml-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+
+  .mr-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+
+  .p-#{$i} {
+    padding: #{$i}px !important;
+  }
+
+  .pt-#{$i} {
+    padding-top: #{$i}px !important;
+  }
+
+  .pl-#{$i} {
+    padding-left: #{$i}px !important;
+  }
+
+  .pr-#{$i} {
+    padding-right: #{$i}px !important;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: #{$i}px !important;
+  }
+
+  $i:$i - 2;
+}
+
+/******  mt-5 mt-15 mt-20 mt-25*****/
+@each $i in 5,
+15,
+20,
+22,
+24,
+25,
+30,
+32,
+35,
+36,
+40,
+45,
+50,
+55,
+60,
+65,
+70,
+80,
+90,
+100,
+110,
+120 {
+  .m-#{$i} {
+    margin: #{$i}px !important;
+  }
+
+  .mt-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+
+  .ml-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+
+  .mr-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+
+  .p-#{$i} {
+    padding: #{$i}px !important;
+  }
+
+  .pt-#{$i} {
+    padding-top: #{$i}px !important;
+  }
+
+  .pl-#{$i} {
+    padding-left: #{$i}px !important;
+  }
+
+  .pr-#{$i} {
+    padding-right: #{$i}px !important;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: #{$i}px !important;
+  }
+}

@@ -1,0 +1,384 @@
+/******** 公用样式 ********/
+
+/**************  flex 基本布局 ***************/
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-v-center{
+  display: flex;
+  align-items: center;
+}
+
+//手型鼠标
+.cursor {
+  cursor: pointer;
+}
+
+.container-wrap {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+/* 上传弹框 */
+.wran-text {
+  width: 250px;
+  font-size: $font-14;
+  font-weight: $weight-500;
+  color: $placeholder;
+  margin: 18px auto;
+  line-height: 20px;
+}
+
+// 按钮类
+@mixin medinum {
+  min-width: 100px;
+  height: 40px;
+}
+
+@mixin small {
+  min-width: 80px;
+  height: 36px;
+}
+
+@mixin mini {
+  min-width: 64px;
+  height: 32px;
+}
+
+@mixin btn-base-medinum {
+  box-sizing: border-box;
+  @include medinum;
+  font-size: $font-16;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@mixin btn-base-small {
+  box-sizing: border-box;
+  @include small;
+  font-size: $font-14;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@mixin btn-base-mini {
+  padding: 0 15px;
+  box-sizing: border-box;
+  @include mini;
+  font-size: $font-14;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@mixin btn-attention {
+  font-size: $font-14;
+  font-weight: $weight-400;
+  border-radius: 50px;
+  width: 82px;
+  height: 36px;
+  box-sizing: border-box;
+}
+
+.btn-primary-medinum {
+  @include btn-base-medinum;
+  background: $primary;
+  color: $default-light;
+}
+
+.btn-primary-small {
+  @include btn-base-small;
+  background: $primary;
+  color: $default-light;
+}
+
+.btn-primary-mini {
+  @include btn-base-mini;
+  background: $primary;
+  color: $default-light;
+}
+
+[class^="btn-primary"]:hover {
+  box-shadow: 0px 6px 20px 0px rgba(73, 145, 255, 0.4);
+}
+
+.btn-primary-mini:hover {
+  box-shadow: 0px 6px 16px 0px rgba(73, 145, 255, 0.4);
+}
+
+.btn-sup-medinum {
+  @include btn-base-medinum;
+  color: $primary;
+  border: 1px solid $primary;
+  background: $primary-paler;
+}
+
+.btn-sup-small {
+  @include btn-base-small;
+  color: $primary;
+  border: 1px solid $primary;
+  background: $primary-paler;
+}
+
+.btn-sup-mini {
+  @include btn-base-mini;
+  color: $primary;
+  border: 1px solid $primary;
+  background: $primary-paler;
+}
+
+.btn-gray-medinum {
+  @include btn-base-medinum;
+  color: $placeholder;
+  border: 1px solid $placeholder;
+  background: $background;
+}
+
+.btn-gray-small {
+  @include btn-base-small;
+  color: $placeholder;
+  border: 1px solid $placeholder;
+  background: $background;
+}
+
+.btn-gray-mini {
+  @include btn-base-mini;
+  color: $placeholder;
+  border: 1px solid $placeholder;
+  background: $background;
+}
+
+.btn-danger-medinum {
+  @include btn-base-medinum;
+  background: $danger;
+  color: $default-light;
+}
+
+.btn-danger-small {
+  @include btn-base-small;
+  background: $danger;
+  color: $default-light;
+}
+
+.btn-danger-mini {
+  @include btn-base-mini;
+  background: $danger;
+  color: $default-light;
+}
+
+.btn-attention {
+  @include btn-attention();
+  @include flex-center();
+  background: $orange-light;
+  color: $default-light;
+}
+
+.btn-attention-plain {
+  @include btn-attention();
+  @include flex-center();
+  background: $default-light;
+  border: 1px solid $orange-deep;
+  color: $orange-deep;
+}
+
+.btn-archive {
+  @include btn-attention();
+  background-color: #e4e4e4;
+  color: #8b8d98;
+  font-weight: $weight-500;
+}
+
+[class^="btn-danger"]:hover {
+  box-shadow: 0px 10px 20px 0px rgba(255, 112, 133, 0.4);
+}
+
+.btn-danger-mini:hover {
+  box-shadow: 0px 6px 16px 0px rgba(255, 112, 133, 0.4);
+}
+
+.imgClass {
+  width: 40px;
+  height: 40px;
+}
+
+/********** tag *********/
+.header-tag {
+  width: 56px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: $font-14;
+}
+
+.header-tag-red {
+  color: rgba(255, 112, 133, 1);
+  background: rgba(255, 112, 133, 0.2);
+}
+
+.header-tag-gray {
+  color: rgba(148, 158, 168, 1);
+  background: rgba(148, 158, 168, 0.2);
+}
+
+/***** 有tabs的Card *******/
+.has-tabs {
+  .el-card__header {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .el-tabs__header {
+    margin: 0;
+  }
+
+  .el-tabs__item {
+    font-size: $font-18;
+    font-weight: $weight-500;
+    color: $placeholder;
+    font-family: PingFang SC;
+  }
+
+  .is-active {
+    color: $link;
+  }
+
+  .el-tabs__nav {
+    height: 64px;
+    @include flex-center;
+  }
+
+  .el-tabs__nav-wrap::after {
+    background-color: inherit;
+  }
+
+  .el-tabs__active-bar {
+    height: 3px;
+    background-color: $link;
+    box-sizing: border-box;
+    background-clip: content-box;
+  }
+}
+
+/***** 搜索输入框 *******/
+.search-params {
+  .el-input__inner {
+    height: 40px;
+    width: 346px;
+  }
+
+  .el-form-item {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .el-input__suffix {
+    @include flex-center;
+  }
+
+  .el-input__suffix::before {
+    content: "";
+    margin-right: 16px;
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background: $border;
+  }
+}
+
+.mission-list-box {
+  li {
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(208, 216, 222, 1);
+    .mission-title {
+      font-size: $font-16;
+      font-weight: $weight-500;
+      color: $title;
+      margin-bottom: 10px;
+    }
+  }
+  li:last-of-type {
+    border-bottom: none;
+  }
+}
+
+/***** 圆角按钮 *******/
+.fillet-btn {
+  font-size: $font-16;
+  font-weight: $weight-400;
+  padding: 8px 26px;
+  line-height: 20px;
+  border-radius: 50px;
+  &-primary {
+    color: $primary;
+    background: rgba(229, 239, 255, 1);
+  }
+  &-success {
+    background: rgba(213, 243, 234, 1);
+    color: #4ad4a6;
+  }
+}
+
+.card-no-padding {
+  .el-card__body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/***** tabs-数量 *******/
+.to-reply-num {
+  color: $placeholder;
+  font-size: $font-12;
+  padding: 5px 15px;
+  background: rgba(236, 237, 239, 1);
+  border-radius: 50px;
+  text-align: center;
+  position: relative;
+  top: -2px;
+  span:nth-of-type(1) {
+    font-weight: $weight-800;
+  }
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+/***** 新增评论 *******/
+.comment-operating {
+  @include flex-center(space-between);
+  &-left {
+    @include flex-center(flex-start);
+    position: relative;
+    .operating-tip {
+      font-size: $font-12;
+      font-weight: $weight-400;
+      color: $date;
+      width: 400px;
+      position: absolute;
+      top:4px;
+      left: 100px;
+    }
+    .svg-icon {
+      width: 24px;
+      height: 24px;
+      fill: #8b8d98;
+    }
+    .file {
+      li {
+        margin-top: 10px;
+      }
+    }
+  }
+  &-right {
+    button {
+      border-radius: 50px;
+      border: none !important;
+    }
+    .btn-gray-small {
+      background: rgba(240, 240, 240, 1);
+    }
+  }
+}

@@ -1,0 +1,57 @@
+/*************  默认色 *************/
+$default-light: #fff;
+$default-dark: #000;
+
+/***************primary 主色****************/
+$primary-deep: #0061ff; // 深蓝
+$primary: #4d94ff; // 蓝
+$primary-light: #bed6ff; // 浅蓝
+$primary-paler: #e5efff; // 白蓝
+
+/*************** status 状态色*****************/
+$success: #3bd19f;
+$warning: #fe9749;
+$danger: #ff7085;
+
+/************* font color 字体色****************/
+
+$title: #202e3d; // 标题
+$text: #556270; //正文
+$link: #4d94ff; // 文字连接
+$placeholder: #949ea8; // 辅助信息
+$placeholder-light: #c5cdd6; // 辅助信息浅色
+$upload-warn-color: #ff5151;
+$date: #999999; // 时间
+$description: #546170;
+$orange-deep: #ffa667;
+$orange-light: #FBD4A3;
+$orange-paler: #fef5d8;
+$orange-text: #ffa51b;
+
+/******************灰度色****************/
+$background: #f8f9fb;
+$background-gray: #f8f9fa;
+$border: #e8ecef;
+
+/*******************图表色*****************/
+$purple: #7540ee;
+$orange: #ffc442;
+
+/*****************字体大小****************/
+$font-12: 12px;
+$font-14: 14px;
+$font-16: 16px;
+$font-18: 18px;
+$font-20: 20px;
+$font-24: 24px;
+$font-28: 28px;
+$font-30: 30px;
+$font-32: 32px;
+$font-36: 36px;
+
+$weight-300: 300;
+$weight-400: 400;
+$weight-500: 500;
+$weight-600: 600;
+$weight-700: 700;
+$weight-800: 800;
