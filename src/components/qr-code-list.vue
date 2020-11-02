@@ -41,11 +41,11 @@ import MTA from '../utils/mta'
 
 export default {
   name: 'qr-code-list',
-  mounted() {
+  mounted () {
     MTA.clickStat('link_one', { show: 'true' })
   },
   methods: {
-    handlClick() {
+    handlClick () {
       MTA.clickStat('link_one', { click: 'true' })
     }
   }

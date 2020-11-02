@@ -20,7 +20,7 @@ export default {
     }
   },
   computed: {
-    genderClass() {
+    genderClass () {
       switch (this.profile.gender) {
         case this.TIM.TYPES.GENDER_MALE:
           return 'icon-male'

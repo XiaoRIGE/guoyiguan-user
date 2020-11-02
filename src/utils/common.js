@@ -1,4 +1,4 @@
-export function translateGroupSystemNotice(message) {
+export function translateGroupSystemNotice (message) {
   const groupName = message.payload.groupProfile.name || message.payload.groupProfile.groupID
   switch (message.payload.operationType) {
     case 1:

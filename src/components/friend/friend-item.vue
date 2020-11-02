@@ -19,12 +19,12 @@ export default {
       required: true
     }
   },
-  methods:{
-    handleFriendClick() {
-      this.tim.getConversationProfile(`C2C${this.friend.userID}`).then(({data})=>{
+  methods: {
+    handleFriendClick () {
+      this.tim.getConversationProfile(`C2C${this.friend.userID}`).then(({ data }) => {
         this.$store.commit('updateCurrentConversation', data)
       })
-      .catch(error => {
+        .catch(error => {
           this.$store.commit('showMessage', {
             type: 'error',
             message: error.message

@@ -1,5 +1,5 @@
 <template>
-<message-bubble :isMine=isMine :message=message>  
+<message-bubble :isMine=isMine :message=message>
   <div class="file-element-wrapper" title="单击下载" @click="downloadFile">
     <div class="header">
       <i class="el-icon-document file-icon"></i>
@@ -40,13 +40,13 @@ export default {
     ElProgress: Progress
   },
   computed: {
-    fileName() {
+    fileName () {
       return this.payload.fileName
     },
-    fileUrl() {
+    fileUrl () {
       return this.payload.fileUrl
     },
-    size() {
+    size () {
       const size = this.payload.fileSize
       if (size > 1024) {
         if (size / 1024 > 1024) {
@@ -56,31 +56,31 @@ export default {
       }
       return `${this.toFixed(size)}B`
     },
-    showProgressBar() {
+    showProgressBar () {
       return this.$parent.message.status === 'unSend'
     },
-    percentage() {
+    percentage () {
       return Math.floor((this.$parent.message.progress || 0) * 100)
     }
   },
   methods: {
-    toFixed(number, precision = 2) {
+    toFixed (number, precision = 2) {
       return number.toFixed(precision)
     },
-    downloadFile() {
+    downloadFile () {
       // 浏览器支持fetch则用blob下载，避免浏览器点击a标签，跳转到新页面预览的行为
       if (window.fetch) {
         fetch(this.fileUrl)
           .then(res => res.blob())
           .then(blob => {
-            let a = document.createElement('a')
-            let url = window.URL.createObjectURL(blob)
+            const a = document.createElement('a')
+            const url = window.URL.createObjectURL(blob)
             a.href = url
             a.download = this.fileName
             a.click()
           })
       } else {
-        let a = document.createElement('a')
+        const a = document.createElement('a')
         a.href = this.fileUrl
         a.target = '_blank'
         a.download = this.filename

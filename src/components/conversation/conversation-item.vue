@@ -58,14 +58,14 @@ import { isToday, getDate, getTime } from '../../utils/date'
 export default {
   name: 'conversation-item',
   props: ['conversation'],
-  data() {
+  data () {
     return {
       popoverVisible: false,
       hasMessageAtMe: false
     }
   },
   computed: {
-    showUnreadCount() {
+    showUnreadCount () {
       if (this.$store.getters.hidden) {
         return this.conversation.unreadCount > 0
       }
@@ -75,7 +75,7 @@ export default {
           this.conversation.conversationID && this.conversation.unreadCount > 0
       )
     },
-    date() {
+    date () {
       if (
         !this.conversation.lastMessage ||
         !this.conversation.lastMessage.lastTime
@@ -88,7 +88,7 @@ export default {
       }
       return getDate(date)
     },
-    avatar: function() {
+    avatar: function () {
       switch (this.conversation.type) {
         case 'GROUP':
           return this.conversation.groupProfile.avatar
@@ -98,7 +98,7 @@ export default {
           return ''
       }
     },
-    conversationName: function() {
+    conversationName: function () {
       if (this.conversation.type === this.TIM.TYPES.CONV_C2C) {
         return this.conversation.userProfile.nick || this.conversation.userProfile.userID
       }
@@ -110,7 +110,7 @@ export default {
       }
       return ''
     },
-    showGrayBadge() {
+    showGrayBadge () {
       if (this.conversation.type !== this.TIM.TYPES.CONV_GROUP) {
         return false
       }
@@ -119,7 +119,7 @@ export default {
         'AcceptNotNotify'
       )
     },
-    messageForShow() {
+    messageForShow () {
       if (this.conversation.lastMessage.isRevoked) {
         if (this.conversation.lastMessage.fromAccount === this.currentUserProfile.userID) {
           return '你撤回了一条消息'
@@ -137,7 +137,7 @@ export default {
     }),
     ...mapGetters(['toAccount'])
   },
-  mounted() {
+  mounted () {
     this.$bus.$on('new-messsage-at-me', event => {
       if (
         event.data.conversationID === this.conversation.conversationID &&
@@ -149,7 +149,7 @@ export default {
     })
   },
   methods: {
-    selectConversation() {
+    selectConversation () {
       if (this.conversation.conversationID !== this.currentConversation.conversationID) {
         this.$store.dispatch(
           'checkoutConversation',
@@ -157,7 +157,7 @@ export default {
         )
       }
     },
-    deleteConversation(event) {
+    deleteConversation (event) {
       // 停止冒泡，避免和点击会话的事件冲突
       event.stopPropagation()
       this.tim
@@ -178,12 +178,12 @@ export default {
           this.popoverVisible = false
         })
     },
-    showContextMenu() {
+    showContextMenu () {
       this.popoverVisible = true
-    },
+    }
   },
   watch: {
-    currentConversation(next) {
+    currentConversation (next) {
       if (next.conversationID === this.conversation.conversationID) {
         this.hasMessageAtMe = false
       }
@@ -193,7 +193,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
 
 .conversation-item-container
   padding 15px 20px

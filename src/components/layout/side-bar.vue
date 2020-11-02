@@ -69,7 +69,7 @@ export default {
     FriendList,
     BlackList
   },
-  data() {
+  data () {
     return {
       active: activeName.CONVERSATION_LIST,
       activeName: activeName
@@ -77,29 +77,29 @@ export default {
   },
   computed: {
     ...mapGetters(['totalUnreadCount']),
-    showConversationList() {
+    showConversationList () {
       return this.active === activeName.CONVERSATION_LIST
     },
-    showGroupList() {
+    showGroupList () {
       return this.active === activeName.GROUP_LIST
     },
-    showFriendList() {
+    showFriendList () {
       return this.active === activeName.FRIEND_LIST
     },
-    showBlackList() {
+    showBlackList () {
       return this.active === activeName.BLACK_LIST
     },
-    showAddButton() {
+    showAddButton () {
       return [activeName.CONVERSATION_LIST, activeName.GROUP_LIST].includes(
         this.active
       )
     }
   },
   methods: {
-    checkoutActive(name) {
+    checkoutActive (name) {
       this.active = name
     },
-    handleClick(event) {
+    handleClick (event) {
       switch (event.target.id) {
         case activeName.CONVERSATION_LIST:
           this.checkoutActive(activeName.CONVERSATION_LIST)
@@ -115,7 +115,7 @@ export default {
           break
       }
     },
-    handleRefresh() {
+    handleRefresh () {
       switch (this.active) {
         case activeName.CONVERSATION_LIST:
           this.tim.getConversationList().catch(error => {
@@ -136,7 +136,7 @@ export default {
           break
       }
     },
-    getGroupList() {
+    getGroupList () {
       this.tim
         .getGroupList()
         .then(({ data: groupList }) => {
@@ -149,7 +149,7 @@ export default {
           })
         })
     },
-    getFriendList() {
+    getFriendList () {
       this.tim
         .getFriendList()
         .then(({ data: friendList }) => {

@@ -33,7 +33,7 @@ import { Dialog, Autocomplete } from 'element-ui'
 import CreateGroup from './create-group.vue'
 import GroupItem from './group-item.vue'
 export default {
-  data() {
+  data () {
     return {
       groupID: '',
       hideSearchLoading: true
@@ -46,7 +46,7 @@ export default {
     ElAutocomplete: Autocomplete
   },
   computed: {
-    groupList: function() {
+    groupList: function () {
       return this.$store.state.group.groupList
     },
     ...mapState({
@@ -56,14 +56,14 @@ export default {
     })
   },
   methods: {
-    onGroupUpdated(groupList) {
+    onGroupUpdated (groupList) {
       this.$store.dispatch('updateGroupList', groupList)
     },
-    createGroup() {},
-    closeCreateGroupModel() {
+    createGroup () {},
+    closeCreateGroupModel () {
       this.$store.commit('updateCreateGroupModelVisible', false)
     },
-    searchGroupByID(queryString, showInSearchResult) {
+    searchGroupByID (queryString, showInSearchResult) {
       if (queryString.trim().length > 0) {
         this.hideSearchLoading = false
         this.tim
@@ -81,14 +81,14 @@ export default {
         this.hideSearchLoading = true
       }
     },
-    showCreateGroupModel() {
+    showCreateGroupModel () {
       this.$store.commit('updateCreateGroupModelVisible', true)
     },
-    applyJoinGroup(group) {
+    applyJoinGroup (group) {
       this.tim
         .joinGroup({ groupID: group.groupID })
         .then(async res => {
-          switch(res.data.status) {
+          switch (res.data.status) {
             case this.TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL:
               this.$store.commit('showMessage', {
                 message: '申请成功，等待群管理员确认。',
@@ -131,7 +131,7 @@ export default {
   width 100%
   display flex
   flex-direction column
-  .group-container 
+  .group-container
     overflow-y scroll
   .header-bar
     display: flex;

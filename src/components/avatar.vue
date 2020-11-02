@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     avatarSrc: function () {
-      let src = this.src
+      const src = this.src
       if (/^(https:|http:|\/\/)/.test(src)) {
         return src
       } else {
@@ -28,7 +28,7 @@ export default {
       }
     },
     defaultSrc: function () {
-      switch(this.type) {
+      switch (this.type) {
         case 'C2C':
           // 个人头像
           return 'https://imgcache.qq.com/open/qcloud/video/act/webim-avatar/avatar-2.png'
@@ -47,13 +47,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.avatar 
+.avatar
   background-color $first
   text-align center
   width 100%
   height 100%
   overflow hidden
-  img 
+  img
     width 100%
     height 100%
 .shape-circle

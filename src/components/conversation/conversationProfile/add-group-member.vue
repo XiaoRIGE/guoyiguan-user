@@ -11,7 +11,7 @@ export default {
   components: {
     ElInput: Input
   },
-  data() {
+  data () {
     return {
       userID: ''
     }
@@ -22,7 +22,7 @@ export default {
     })
   },
   methods: {
-    addGroupMember() {
+    addGroupMember () {
       const groupID = this.currentConversation.conversationID.replace('GROUP', '')
       this.tim
         .addGroupMember({
@@ -40,10 +40,10 @@ export default {
               message: `群成员：${successUserIDList.join(',')}，加群成功`,
               type: 'success'
             })
-            this.tim.getGroupMemberProfile({groupID, userIDList: successUserIDList})
-            .then(({ data: { memberList }}) => {
-              this.$store.commit('updateCurrentMemberList', memberList)
-            })
+            this.tim.getGroupMemberProfile({ groupID, userIDList: successUserIDList })
+              .then(({ data: { memberList } }) => {
+                this.$store.commit('updateCurrentMemberList', memberList)
+              })
           }
           if (failureUserIDList.length > 0) {
             this.$store.commit('showMessage', {

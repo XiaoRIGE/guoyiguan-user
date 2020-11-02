@@ -38,17 +38,17 @@ export default {
   },
 
   computed: {
-    showProgressBar() {
+    showProgressBar () {
       return this.message.status === 'unSend'
     },
-    percentage() {
+    percentage () {
       return Math.floor((this.$parent.message.progress || 0) * 100)
     }
   },
   methods: {
-    videoError(e) {
+    videoError (e) {
       this.$store.commit('showMessage', { type: 'error', message: '视频出错，错误原因：' + e.target.error.message })
-    },
+    }
   }
 }
 </script>

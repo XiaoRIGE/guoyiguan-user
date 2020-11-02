@@ -27,24 +27,24 @@ export default {
   components: {
     MessageBubble
   },
-  data() {
+  data () {
     return {
       amr: null
     }
   },
   computed: {
-    url() {
+    url () {
       return this.payload.url
     },
-    size() {
+    size () {
       return this.payload.size
     },
-    second() {
+    second () {
       return this.payload.second
     }
   },
   methods: {
-    play() {
+    play () {
       // 目前移动端的语音消息采用 aac 格式，以前用 amr 格式。默认先用 audio 标签播放，若无法播放则尝试 amr 格式播放。
       const audio = document.createElement('audio')
       audio.addEventListener('error', this.tryPlayAMR) // 播放出错，则尝试使用 AMR 播放
@@ -54,7 +54,7 @@ export default {
         promise.catch(() => {})
       }
     },
-    tryPlayAMR() {
+    tryPlayAMR () {
       try {
         const isIE = /MSIE|Trident|Edge/.test(window.navigator.userAgent)
         // amr 播放组件库在 IE 不支持
@@ -82,7 +82,7 @@ export default {
         })
       }
     },
-    playAMR() {
+    playAMR () {
       if (!this.amr && window.BenzAMRRecorder) {
         this.amr = new window.BenzAMRRecorder()
       }

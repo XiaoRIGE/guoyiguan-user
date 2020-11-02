@@ -31,7 +31,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'ConversationList',
   components: { ConversationItem },
-  data() {
+  data () {
     return {
       showDialog: false,
       userID: '',
@@ -45,21 +45,21 @@ export default {
       currentConversation: state => state.conversation.currentConversation
     })
   },
-  mounted() {
+  mounted () {
     window.addEventListener('keydown', this.handleKeydown)
   },
-  destroyed() {
+  destroyed () {
     window.removeEventListener('keydown', this.handleKeydown)
   },
   methods: {
-    handleRefresh() {
+    handleRefresh () {
       this.refreshConversation()()
     },
-    refreshConversation() {
-      let that = this
+    refreshConversation () {
+      const that = this
       return function () {
         if (!that.timeout) {
-          that.timeout = setTimeout(() =>{
+          that.timeout = setTimeout(() => {
             that.timeout = null
             that.tim.getConversationList().then(() => {
               that.$store.commit('showMessage', {
@@ -71,21 +71,21 @@ export default {
         }
       }
     },
-    handleAddButtonClick() {
+    handleAddButtonClick () {
       this.showDialog = true
     },
-    handleConfirm() {
+    handleConfirm () {
       if (this.userID !== '@TIM#SYSTEM') {
         this.$store
           .dispatch('checkoutConversation', `C2C${this.userID}`)
           .then(() => {
             this.showDialog = false
           }).catch(() => {
-          this.$store.commit('showMessage', {
-            message: '没有找到该用户',
-            type: 'warning'
+            this.$store.commit('showMessage', {
+              message: '没有找到该用户',
+              type: 'warning'
+            })
           })
-        })
       } else {
         this.$store.commit('showMessage', {
           message: '没有找到该用户',
@@ -94,8 +94,14 @@ export default {
       }
       this.userID = ''
     },
-    handleKeydown(event) {
-      if (event.keyCode !== 38 && event.keyCode !== 40 || this.isCheckouting) {
+    handleKeydown (event) {
+      // if (event.keyCode !== 38 && event.keyCode !== 40 || this.isCheckouting) {
+      //   return
+      // }
+      if (event.keyCode !== 38 && event.keyCode !== 40) {
+        return
+      }
+      if (this.isCheckouting) {
         return
       }
       const currentIndex = this.conversationList.findIndex(
@@ -111,7 +117,7 @@ export default {
         this.checkoutNext(currentIndex)
       }
     },
-    checkoutPrev(currentIndex) {
+    checkoutPrev (currentIndex) {
       this.isCheckouting = true
       this.$store
         .dispatch(
@@ -125,7 +131,7 @@ export default {
           this.isCheckouting = false
         })
     },
-    checkoutNext(currentIndex) {
+    checkoutNext (currentIndex) {
       this.isCheckouting = true
       this.$store
         .dispatch(

@@ -16,7 +16,7 @@ export default {
     }
   },
   computed: {
-    messageIconClass() {
+    messageIconClass () {
       switch (this.message.status) {
         case 'unSend':
           return 'el-icon-loading'
@@ -28,7 +28,7 @@ export default {
     }
   },
   methods: {
-    handleIconClick() {
+    handleIconClick () {
       if (this.messageIconClass === 'message-send-fail') {
         this.tim.resendMessage(this.message).catch(imError => {
           this.$store.commit('showMessage', {

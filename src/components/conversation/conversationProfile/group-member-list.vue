@@ -38,7 +38,7 @@ import { mapState } from 'vuex'
 import AddGroupMember from './add-group-member.vue'
 import GroupMemberInfo from './group-member-info.vue'
 export default {
-  data() {
+  data () {
     return {
       addGroupMemberVisible: false,
       currentMemberID: '',
@@ -56,15 +56,15 @@ export default {
       currentConversation: state => state.conversation.currentConversation,
       currentMemberList: state => state.group.currentMemberList
     }),
-    showLoadMore() {
+    showLoadMore () {
       return this.members.length < this.groupProfile.memberNum
     },
-    members() {
+    members () {
       return this.currentMemberList.slice(0, this.count)
     }
   },
   methods: {
-    getGroupMemberAvatarText(role) {
+    getGroupMemberAvatarText (role) {
       switch (role) {
         case 'Owner':
           return '群主'
@@ -74,7 +74,7 @@ export default {
           return '群成员'
       }
     },
-    loadMore() {
+    loadMore () {
       this.$store
         .dispatch('getGroupMemberList', this.groupProfile.groupID)
         .then(() => {
@@ -147,7 +147,5 @@ export default {
 //   text-align: center;
 //   line-height: 30px;
 // }
-
-
 
 </style>

@@ -28,25 +28,25 @@ export default {
       type: Boolean
     }
   },
-  data() {
+  data () {
     return {
       url: ''
     }
   },
   computed: {
-    lon() {
+    lon () {
       return this.payload.longitude.toFixed(6)
     },
-    lat() {
+    lat () {
       return this.payload.latitude.toFixed(6)
     },
-    href() {
+    href () {
       return `https://map.qq.com/?type=marker&isopeninfowin=1&markertype=1&pointx=${
         this.lon
       }&pointy=${this.lat}&name=${this.payload.description}`
     }
   },
-  mounted() {
+  mounted () {
     this.url = `https://apis.map.qq.com/ws/staticmap/v2/?center=${this.lat},${
       this.lon
     }&zoom=10&size=300*150&maptype=roadmap&markers=size:large|color:0xFFCCFF|label:k|${

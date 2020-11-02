@@ -25,7 +25,7 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'ImagePreviewer',
-  data() {
+  data () {
     return {
       url: '',
       index: 0,
@@ -37,59 +37,59 @@ export default {
   },
   computed: {
     ...mapGetters(['imgUrlList']),
-    showPreviewer() {
+    showPreviewer () {
       return this.url.length > 0 && this.visible
     },
-    imageStyle() {
+    imageStyle () {
       return {
         transform: `scale(${this.zoom});`
       }
     },
-    previewUrl() {
+    previewUrl () {
       return this.formatUrl(this.imgUrlList[this.index])
     }
   },
-  mounted() {
+  mounted () {
     this.$bus.$on('image-preview', this.handlePreview)
   },
   methods: {
-    handlePreview({ url }) {
+    handlePreview ({ url }) {
       this.url = url
       this.index = this.imgUrlList.findIndex(item => item === url)
       this.visible = true
     },
-    handleMouseWheel(event) {
+    handleMouseWheel (event) {
       if (event.wheelDelta > 0) {
         this.zoomIn()
       } else {
         this.zoomOut()
       }
     },
-    zoomIn() {
+    zoomIn () {
       this.zoom += 0.1
     },
-    zoomOut() {
+    zoomOut () {
       this.zoom =
         this.zoom - 0.1 > this.minZoom ? this.zoom - 0.1 : this.minZoom
     },
-    close() {
+    close () {
       Object.assign(this, { zoom: 1 })
       this.visible = false
     },
-    rotateLeft() {
+    rotateLeft () {
       this.rotate -= 90
     },
-    rotateRight() {
+    rotateRight () {
       this.rotate += 90
     },
-    goNext() {
+    goNext () {
       this.index = (this.index + 1) % this.imgUrlList.length
     },
-    goPrev() {
+    goPrev () {
       this.index =
         this.index - 1 >= 0 ? this.index - 1 : this.imgUrlList.length - 1
     },
-    formatUrl(url) {
+    formatUrl (url) {
       if (!url) {
         return ''
       }

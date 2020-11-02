@@ -7,7 +7,7 @@
       :percentage="percentage"
       :color="percentage => (percentage === 100 ? '#67c23a' : '#409eff')"
     />
-  </message-bubble>  
+  </message-bubble>
 </template>
 
 <script>
@@ -35,25 +35,25 @@ export default {
   },
   computed: {
     ...mapGetters(['imgUrlList']),
-    imageUrl() {
+    imageUrl () {
       const url = this.payload.imageInfoArray[0].url
       if (typeof url !== 'string') {
         return ''
       }
       return url.slice(0, 2) === '//' ? `https:${url}` : url
     },
-    showProgressBar() {
+    showProgressBar () {
       return this.$parent.message.status === 'unSend'
     },
-    percentage() {
+    percentage () {
       return Math.floor((this.$parent.message.progress || 0) * 100)
     }
   },
   methods: {
-    onImageLoaded(event) {
+    onImageLoaded (event) {
       this.$bus.$emit('image-loaded', event)
     },
-    handlePreview() {
+    handlePreview () {
       this.$bus.$emit('image-preview', {
         url: this.payload.imageInfoArray[0].url
       })
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.image-element 
+.image-element
   max-width 250px
   cursor zoom-in
 

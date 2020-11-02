@@ -52,9 +52,9 @@ export default {
     ElForm: Form,
     ElFormItem: FormItem,
     ElSelect: Select,
-    ElOption: Option,
+    ElOption: Option
   },
-  data() {
+  data () {
     const checkUserID = (rule, value, callback) => {
       if (!/^[a-zA-Z][a-zA-Z0-9_]{3,23}$/.test(value)) {
         callback(new Error('不合法（字母开头+字母/数字，长度4-24)'))
@@ -80,14 +80,14 @@ export default {
     }
   },
   methods: {
-    submit() {
-      this.$refs['login'].validate(valid => {
+    submit () {
+      this.$refs.login.validate(valid => {
         if (valid) {
           this.login()
         }
       })
     },
-    login() {
+    login () {
       this.loading = true
       this.tim
         .login({
@@ -116,7 +116,7 @@ export default {
             type: 'error'
           })
         })
-    },
+    }
   }
 }
 </script>

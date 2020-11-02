@@ -19,7 +19,7 @@ export default {
     }
   },
   methods: {
-    removeFromBlacklist() {
+    removeFromBlacklist () {
       this.tim
         .removeFromBlacklist({ userIDList: [this.profile.userID] })
         .then(() => {

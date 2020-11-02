@@ -24,7 +24,7 @@
 <script>
 export default {
   name: 'MessageBubble',
-  data() {
+  data () {
     return {
       isTimeout: false
     }
@@ -41,21 +41,21 @@ export default {
       required: true
     }
   },
-  created() {
+  created () {
     this.isTimeoutHandler()
   },
-  mounted() {
+  mounted () {
     if (this.$refs.dropdown && this.$refs.dropdown.$el) {
       this.$refs.dropdown.$el.addEventListener('mousedown', this.handleDropDownMousedown)
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.$refs.dropdown && this.$refs.dropdown.$el) {
       this.$refs.dropdown.$el.removeEventListener('mousedown', this.handleDropDownMousedown)
     }
   },
   computed: {
-    bubbleStyle() {
+    bubbleStyle () {
       let classString = ''
       if (this.isMine) {
         classString += 'message-send'
@@ -67,7 +67,7 @@ export default {
       }
       return classString
     },
-    text() {
+    text () {
       if (this.message.conversationType === this.TIM.TYPES.CONV_C2C && !this.isMine) {
         return '对方撤回了一条消息'
       }
@@ -76,7 +76,7 @@ export default {
       }
       return '你撤回了一条消息'
     },
-    messageReadByPeer() {
+    messageReadByPeer () {
       if (this.message.conversationType === this.TIM.TYPES.CONV_C2C && this.message.isPeerRead) {
         return '已读'
       }
@@ -85,7 +85,7 @@ export default {
       }
       return ''
     },
-    isEdit() {
+    isEdit () {
       if (!this.isMine) {
         return false
       }
@@ -96,10 +96,10 @@ export default {
         return false
       }
       return true
-    },
+    }
   },
   methods: {
-    handleDropDownMousedown(e) {
+    handleDropDownMousedown (e) {
       if (!this.isMine || this.isTimeout) {
         return
       }
@@ -111,7 +111,7 @@ export default {
         }
       }
     },
-    handleCommand(command) {
+    handleCommand (command) {
       switch (command) {
         case 'revoke':
           this.tim.revokeMessage(this.message).then(() => {
@@ -129,15 +129,15 @@ export default {
           break
       }
     },
-    isTimeoutHandler() { // 从发送消息时间开始算起，两分钟内可以编辑
-      let now = new Date()
+    isTimeoutHandler () { // 从发送消息时间开始算起，两分钟内可以编辑
+      const now = new Date()
       if (parseInt(now.getTime() / 1000) - this.message.time > 2 * 60) {
         this.isTimeout = true
         return
       }
       setTimeout(this.isTimeoutHandler, 1000)
     },
-    reEdit() {
+    reEdit () {
       this.$bus.$emit('reEditMessage', this.message.payload.text)
     }
   }

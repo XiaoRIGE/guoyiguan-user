@@ -23,7 +23,7 @@ export default {
     ...mapState({
       blacklist: state => state.blacklist.blacklist
     }),
-    hasBlacklist() {
+    hasBlacklist () {
       return this.blacklist.length > 0
     }
   }

@@ -41,7 +41,7 @@ import { formatDuration } from '../../utils/formatDuration'
 
 export default {
   name: 'CallLayer',
-  data() {
+  data () {
     return {
       Trtc: undefined,
       isCamOn: true,
@@ -55,7 +55,7 @@ export default {
       ready: false,
       dialling: false, // 是否拨打电话中
       calling: false, // 是否通话中
-      isDialled: false, // 是否被呼叫
+      isDialled: false // 是否被呼叫
     }
   },
   computed: {
@@ -66,11 +66,11 @@ export default {
       videoRoom: state => state.video.videoRoom,
       sdkAppID: state => state.user.sdkAppID
     }),
-    formatDurationStr() {
+    formatDurationStr () {
       return formatDuration(this.duration)
-    },
+    }
   },
-  created() {
+  created () {
     window.addEventListener('beforeunload', () => {
       this.videoCallLogOut()
     })
@@ -78,7 +78,7 @@ export default {
       this.videoCallLogOut()
     })
   },
-  mounted() {
+  mounted () {
     this.$bus.$on('isCalled', this.isCalled)
     this.$bus.$on('missCall', this.missCall)
     this.$bus.$on('isRefused', this.isRefused)
@@ -87,7 +87,7 @@ export default {
     this.$bus.$on('busy', this.busy)
     this.$bus.$on('video-call', this.videoCall)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.$bus.$off('isCalled', this.isCalled)
     this.$bus.$off('missCall', this.missCall)
     this.$bus.$off('isRefused', this.isRefused)
@@ -97,7 +97,7 @@ export default {
     this.$bus.$off('video-call', this.videoCall)
   },
   methods: {
-    videoCallLogOut() { // 针对，刷新页面，关闭Tab，登出情况下，通话断开的逻辑
+    videoCallLogOut () { // 针对，刷新页面，关闭Tab，登出情况下，通话断开的逻辑
       if (this.dialling || this.calling) {
         this.leave()
       }
@@ -105,20 +105,20 @@ export default {
         this.refuse()
       }
     },
-    changeState(state, boolean) {
-      let stateList = ['dialling', 'isDialled', 'calling']
+    changeState (state, boolean) {
+      const stateList = ['dialling', 'isDialled', 'calling']
       stateList.forEach(item => {
         this[item] = item === state ? boolean : false
       })
       this.$store.commit('UPDATE_ISBUSY', stateList.some(item => this[item])) // 若stateList 中存在 true , isBusy 为 true
     },
-    async initTrtc(options) { // 初始化 trtc 进入房间
+    async initTrtc (options) { // 初始化 trtc 进入房间
       this.Trtc = new RtcClient(options)
       await this.Trtc.createLocalStream({ audio: true, video: true }).then(() => { // 在进房之前，判断设备
-          this.Trtc.join()
-          this.ready = true
-          this.isCamOn = true
-          this.maskShow = false
+        this.Trtc.join()
+        this.ready = true
+        this.isCamOn = true
+        this.maskShow = false
       }).catch(() => {
         alert(
           '请确认已连接摄像头和麦克风并授予其访问权限！'
@@ -126,7 +126,7 @@ export default {
         this.ready = false
       })
     },
-    videoCall() { // 发起通话
+    videoCall () { // 发起通话
       if (this.calling) { // 避免通话按钮多次快速的点击
         return
       }
@@ -145,7 +145,7 @@ export default {
         this.sendVideoMessage(ACTION.VIDEO_CALL_ACTION_DIALING)
       })
     },
-    leave() { // 离开房间，发起方挂断
+    leave () { // 离开房间，发起方挂断
       if (!this.calling) { // 还没有通话，单方面挂断
         this.Trtc.leave()
         clearTimeout(this.timer)
@@ -155,36 +155,36 @@ export default {
       }
       this.hangUp() // 通话一段时间之后，某一方面结束通话
     },
-    timeout() { // 通话超时
+    timeout () { // 通话超时
       this.changeState('dialling', false)
       this.Trtc.leave()
       this.sendVideoMessage(ACTION.VIDEO_CALL_ACTION_SPONSOR_TIMEOUT)
     },
-    isCalled() { // 被呼叫
+    isCalled () { // 被呼叫
       this.changeState('isDialled', true)
     },
-    missCall() { // 错过电话，也就是发起方的电话超时挂断或自己挂断
+    missCall () { // 错过电话，也就是发起方的电话超时挂断或自己挂断
       this.changeState('isDialled', false)
     },
-    refuse() { // 拒绝电话
+    refuse () { // 拒绝电话
       this.changeState('isDialled', false)
       this.sendVideoMessage(ACTION.VIDEO_CALL_ACTION_REJECT)
     },
-    isRefused() { // 对方拒绝通话
+    isRefused () { // 对方拒绝通话
       this.changeState('dialling', false)
       clearTimeout(this.timer)
     },
-    resetDuration(duration) {
+    resetDuration (duration) {
       this.duration = duration
       this.hangUpTimer = setTimeout(() => {
-        let now = new Date()
+        const now = new Date()
         this.resetDuration(parseInt((now - this.start) / 1000))
       }, 1000)
     },
-    accept() { // 接听电话
+    accept () { // 接听电话
       this.changeState('calling', true)
       const options = {
-       userId: this.userID,
+        userId: this.userID,
         userSig: this.userSig,
         roomId: this.videoRoom,
         sdkAppId: this.sdkAppID
@@ -201,14 +201,14 @@ export default {
         this.resetDuration(0)
       })
     },
-    isAccept() { // 对方接听自己发起的电话
+    isAccept () { // 对方接听自己发起的电话
       clearTimeout(this.timer)
       this.changeState('calling', true)
       clearTimeout(this.hangUpTimer)
       this.resetDuration(0)
       this.start = new Date()
     },
-    hangUp() { // 通话一段时间之后，某一方挂断电话
+    hangUp () { // 通话一段时间之后，某一方挂断电话
       this.changeState('calling', false)
       this.Trtc.leave()
       this.end = new Date()
@@ -216,14 +216,14 @@ export default {
       this.sendVideoMessage(ACTION.VIDEO_CALL_ACTION_HANGUP, duration)
       clearTimeout(this.hangUpTimer)
     },
-    isHungUp() { // 通话一段时间之后，对方挂断电话
+    isHungUp () { // 通话一段时间之后，对方挂断电话
       if (this.calling) {
         this.changeState('calling', false)
         this.Trtc.leave()
         clearTimeout(this.hangUpTimer)
       }
     },
-    busy(videoPayload, messageItem) {
+    busy (videoPayload, messageItem) {
       videoPayload.action = ACTION.VIDEO_CALL_ACTION_LINE_BUSY
       const message = this.tim.createCustomMessage({
         to: messageItem.from,
@@ -237,7 +237,7 @@ export default {
       this.$store.commit('pushCurrentMessageList', message)
       this.tim.sendMessage(message)
     },
-    videoHandler() { // 是否打开摄像头
+    videoHandler () { // 是否打开摄像头
       if (this.isCamOn) {
         this.isCamOn = false
         this.maskShow = true
@@ -248,7 +248,7 @@ export default {
         this.Trtc.unmuteLocalVideo()
       }
     },
-    micHandler() { // 是否打开麦克风
+    micHandler () { // 是否打开麦克风
       if (this.isMicOn) {
         this.isMicOn = false
         this.Trtc.muteLocalAudio()
@@ -257,7 +257,7 @@ export default {
         this.Trtc.unmuteLocalAudio()
       }
     },
-    sendVideoMessage(action, duration = 0) {
+    sendVideoMessage (action, duration = 0) {
       const options = {
         room_id: this.videoRoom,
         call_id: '',
@@ -278,7 +278,7 @@ export default {
       this.$store.commit('pushCurrentMessageList', message)
       this.tim.sendMessage(message)
     },
-    changeMainVideo() {
+    changeMainVideo () {
       if (!this.calling) {
         return
       }

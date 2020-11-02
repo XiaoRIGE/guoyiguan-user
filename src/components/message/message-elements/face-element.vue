@@ -24,10 +24,10 @@ export default {
     }
   },
   components: {
-    MessageBubble,
+    MessageBubble
   },
-  computed:{
-    url() {
+  computed: {
+    url () {
       let name = ''
       if (this.payload.data.indexOf('@2x') > 0) {
         name = this.payload.data

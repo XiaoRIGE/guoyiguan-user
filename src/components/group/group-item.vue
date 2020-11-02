@@ -10,7 +10,7 @@
 <script>
 export default {
   props: ['group'],
-  data() {
+  data () {
     return {
       visible: false,
       options: [
@@ -22,13 +22,13 @@ export default {
     }
   },
   methods: {
-    handleGroupClick() {
+    handleGroupClick () {
       const conversationID = `GROUP${this.group.groupID}`
       this.$store.dispatch('checkoutConversation', conversationID)
     },
-    quitGroup() {
+    quitGroup () {
       this.tim.quitGroup(this.group.groupID)
-      .catch(error => {
+        .catch(error => {
           this.$store.commit('showMessage', {
             type: 'error',
             message: error.message

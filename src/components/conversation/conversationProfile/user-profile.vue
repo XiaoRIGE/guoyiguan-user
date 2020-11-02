@@ -39,10 +39,10 @@ export default {
       blacklist: state => state.blacklist.blacklist,
       myUserID: state => state.user.currentUserProfile.userID
     }),
-    isInBlacklist() {
+    isInBlacklist () {
       return this.blacklist.findIndex(item => item.userID === this.userProfile.userID) >= 0
     },
-    gender() {
+    gender () {
       switch (this.userProfile.gender) {
         case this.TIM.TYPES.GENDER_MALE:
           return '男'
@@ -52,7 +52,7 @@ export default {
           return '未设置'
       }
     },
-    genderClass() {
+    genderClass () {
       switch (this.userProfile.gender) {
         case this.TIM.TYPES.GENDER_MALE:
           return 'icon-male'
@@ -64,7 +64,7 @@ export default {
     }
   },
   methods: {
-    addToBlackList() {
+    addToBlackList () {
       this.tim
         .addToBlacklist({ userIDList: [this.userProfile.userID] })
         .then(() => {
@@ -77,11 +77,11 @@ export default {
           })
         })
     },
-    removeFromBlacklist() {
+    removeFromBlacklist () {
       this.tim.removeFromBlacklist({ userIDList: [this.userProfile.userID] }).then(() => {
         this.$store.commit('removeFromBlacklist', this.userProfile.userID)
       })
-      .catch(error => {
+        .catch(error => {
           this.$store.commit('showMessage', {
             type: 'error',
             message: error.message

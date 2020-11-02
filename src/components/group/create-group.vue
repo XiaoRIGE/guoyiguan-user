@@ -74,7 +74,7 @@ export default {
     ElRadioGroup: RadioGroup,
     ElRadio: Radio
   },
-  data() {
+  data () {
     return {
       form: {
         groupID: '',
@@ -94,7 +94,7 @@ export default {
     }
   },
   computed: {
-    joinOptionDisabled() {
+    joinOptionDisabled () {
       return [
         this.TIM.TYPES.GRP_WORK,
         this.TIM.TYPES.GRP_MEETING,
@@ -103,7 +103,7 @@ export default {
     }
   },
   methods: {
-    onSubmit(ref) {
+    onSubmit (ref) {
       this.$refs[ref].validate(valid => {
         if (!valid) {
           return false
@@ -111,26 +111,26 @@ export default {
         this.createGroup()
       })
     },
-    closeCreateGroupModel() {
+    closeCreateGroupModel () {
       this.$store.commit('updateCreateGroupModelVisible', false)
     },
-    createGroup() {
+    createGroup () {
       this.tim.createGroup(this.getOptions()).then((imResponse) => {
-         this.$store.commit('showMessage', {
-            message: `群组：【${imResponse.data.group.name}】创建成功`,
-            type: 'success'
-          })
+        this.$store.commit('showMessage', {
+          message: `群组：【${imResponse.data.group.name}】创建成功`,
+          type: 'success'
+        })
         this.closeCreateGroupModel()
       })
-      .catch(error => {
+        .catch(error => {
           this.$store.commit('showMessage', {
             type: 'error',
             message: error.message
           })
         })
     },
-    getOptions() {
-      let options = {
+    getOptions () {
+      const options = {
         ...this.form,
         memberList: this.form.memberList.map(userID => ({ userID }))
       }
@@ -139,19 +139,19 @@ export default {
       }
       return options
     },
-    handleSearchUser(userID) {
+    handleSearchUser (userID) {
       if (userID !== '') {
         this.loading = true
         this.tim.getUserProfile({ userIDList: [userID] }).then(({ data }) => {
           this.options = data.map(item => item.userID)
           this.loading = false
         })
-        .catch(error => {
-          this.$store.commit('showMessage', {
-            type: 'error',
-            message: error.message
+          .catch(error => {
+            this.$store.commit('showMessage', {
+              type: 'error',
+              message: error.message
+            })
           })
-        })
       }
     }
   }

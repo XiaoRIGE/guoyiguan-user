@@ -16,12 +16,12 @@ export default {
     }
   },
   computed: {
-    text() {
+    text () {
       return this.getGroupTipContent(this.message)
     }
   },
   methods: {
-    getGroupTipContent(message) {
+    getGroupTipContent (message) {
       const userName = message.nick || message.payload.userIDList.join(',')
       switch (message.payload.operationType) {
         case this.TIM.TYPES.GRP_TIP_MBR_JOIN:
@@ -37,7 +37,7 @@ export default {
         case this.TIM.TYPES.GRP_TIP_GRP_PROFILE_UPDATED:
           return '群资料修改'
         case this.TIM.TYPES.GRP_TIP_MBR_PROFILE_UPDATED:
-          for (let member of message.payload.memberList) {
+          for (const member of message.payload.memberList) {
             if (member.muteTime > 0) {
               return `群成员：${member.userID}被禁言${member.muteTime}秒`
             } else {
@@ -48,8 +48,8 @@ export default {
         default:
           return '[群提示消息]'
       }
-    },
-}
+    }
+  }
 }
 </script>
 

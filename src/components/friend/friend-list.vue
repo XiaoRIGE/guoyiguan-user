@@ -18,7 +18,7 @@ export default {
     ...mapState({
       friendList: state => state.friend.friendList
     }),
-    hasFriend() {
+    hasFriend () {
       return this.friendList.length > 0
     }
   }

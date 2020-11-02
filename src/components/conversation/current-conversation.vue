@@ -49,7 +49,7 @@ export default {
     ConversationProfile,
     MemberProfileCard
   },
-  data() {
+  data () {
     return {
       isShowScrollButtomTips: false,
       preScrollHeight: 0,
@@ -66,10 +66,10 @@ export default {
     }),
     ...mapGetters(['toAccount', 'hidden']),
     // 是否显示当前会话组件
-    showCurrentConversation() {
+    showCurrentConversation () {
       return !!this.currentConversation.conversationID
     },
-    name() {
+    name () {
       if (this.currentConversation.type === 'C2C') {
         return this.currentConversation.userProfile.nick || this.toAccount
       } else if (this.currentConversation.type === 'GROUP') {
@@ -79,42 +79,42 @@ export default {
       }
       return this.toAccount
     },
-    showMessageSendBox() {
+    showMessageSendBox () {
       return this.currentConversation.type !== this.TIM.TYPES.CONV_SYSTEM
     }
   },
-  mounted() {
+  mounted () {
     this.$bus.$on('image-loaded', this.onImageLoaded)
     this.$bus.$on('scroll-bottom', this.scrollMessageListToButtom)
     if (this.currentConversation.conversationID === '@TIM#SYSTEM') {
       return false
     }
   },
-  updated() {
+  updated () {
     this.keepMessageListOnButtom()
     // 1. 系统会话隐藏右侧资料组件
     // 2. 没有当前会话时，隐藏右侧资料组件。
     //    背景：退出群组/删除会话时，会出现一处空白区域
-    if (this.currentConversation.conversationID === '@TIM#SYSTEM' || 
+    if (this.currentConversation.conversationID === '@TIM#SYSTEM' ||
         typeof this.currentConversation.conversationID === 'undefined') {
       this.showConversationProfile = false
     }
   },
   watch: {
-    currentUnreadCount(next) {
+    currentUnreadCount (next) {
       if (!this.hidden && next > 0) {
         this.tim.setMessageRead({ conversationID: this.currentConversation.conversationID })
       }
     },
-    hidden(next) {
+    hidden (next) {
       if (!next && this.currentUnreadCount > 0) {
         this.tim.setMessageRead({ conversationID: this.currentConversation.conversationID })
       }
     }
   },
   methods: {
-    onScroll({ target: { scrollTop } }) {
-      let messageListNode = this.$refs['message-list']
+    onScroll ({ target: { scrollTop } }) {
+      const messageListNode = this.$refs['message-list']
       if (!messageListNode) {
         return
       }
@@ -123,8 +123,8 @@ export default {
       }
     },
     // 如果滚到底部就保持在底部，否则提示是否要滚到底部
-    keepMessageListOnButtom() {
-      let messageListNode = this.$refs['message-list']
+    keepMessageListOnButtom () {
+      const messageListNode = this.$refs['message-list']
       if (!messageListNode) {
         return
       }
@@ -140,9 +140,9 @@ export default {
       this.preScrollHeight = messageListNode.scrollHeight
     },
     // 直接滚到底部
-    scrollMessageListToButtom() {
+    scrollMessageListToButtom () {
       this.$nextTick(() => {
-        let messageListNode = this.$refs['message-list']
+        const messageListNode = this.$refs['message-list']
         if (!messageListNode) {
           return
         }
@@ -151,10 +151,10 @@ export default {
         this.isShowScrollButtomTips = false
       })
     },
-    showMore() {
+    showMore () {
       this.showConversationProfile = !this.showConversationProfile
     },
-    onImageLoaded() {
+    onImageLoaded () {
       this.keepMessageListOnButtom()
     }
   }

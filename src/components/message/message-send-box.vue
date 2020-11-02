@@ -139,7 +139,7 @@ export default {
     ElTooltip: Tooltip,
     ElRate: Rate
   },
-  data() {
+  data () {
     return {
       colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
       messageContent: '',
@@ -169,22 +169,22 @@ export default {
       userID: state => state.user.userID
     })
   },
-  mounted() {
+  mounted () {
     this.$refs['text-input'].addEventListener('paste', this.handlePaste)
     this.$bus.$on('reEditMessage', this.reEditMessage)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.$refs['text-input'].removeEventListener('paste', this.handlePaste)
   },
   methods: {
-    reEditMessage(payload) {
+    reEditMessage (payload) {
       this.messageContent = payload
     },
-    handleSelectAtUser() {
+    handleSelectAtUser () {
       this.messageContent += this.atUserID + ' '
       this.showAtGroupMember = false
     },
-    handleUp() {
+    handleUp () {
       const index = this.memberList.findIndex(
         member => member.userID === this.atUserID
       )
@@ -193,7 +193,7 @@ export default {
       }
       this.atUserID = this.memberList[index - 1].userID
     },
-    handleDown() {
+    handleDown () {
       const index = this.memberList.findIndex(
         member => member.userID === this.atUserID
       )
@@ -202,18 +202,18 @@ export default {
       }
       this.atUserID = this.memberList[index + 1].userID
     },
-    handleEnter() {
+    handleEnter () {
       if (this.showAtGroupMember) {
         this.handleSelectAtUser()
       } else {
         this.sendTextMessage()
       }
     },
-    handleLine() {
+    handleLine () {
       this.messageContent += '\n'
     },
-    handlePaste(e) {
-      let clipboardData = e.clipboardData
+    handlePaste (e) {
+      const clipboardData = e.clipboardData
       let file
       if (
         clipboardData &&
@@ -227,7 +227,7 @@ export default {
         return
       }
       // 1. 创建消息实例，接口返回的实例可以上屏
-      let message = this.tim.createImageMessage({
+      const message = this.tim.createImageMessage({
         to: this.toAccount,
         conversationType: this.currentConversationType,
         payload: {
@@ -240,7 +240,7 @@ export default {
       this.$store.commit('pushCurrentMessageList', message)
 
       // 2. 发送消息
-      let promise = this.tim.sendMessage(message)
+      const promise = this.tim.sendMessage(message)
       promise.catch(error => {
         this.$store.commit('showMessage', {
           type: 'error',
@@ -248,9 +248,9 @@ export default {
         })
       })
     },
-    dropHandler(e) {
+    dropHandler (e) {
       e.preventDefault()
-      let file = e.dataTransfer.files[0]
+      const file = e.dataTransfer.files[0]
       let message = {}
       if (file.type === 'video/mp4') {
         message = this.tim.createVideoMessage({
@@ -288,7 +288,7 @@ export default {
           })
         })
     },
-    sendTextMessage() {
+    sendTextMessage () {
       if (
         this.messageContent === '' ||
         this.messageContent.trim().length === 0
@@ -315,7 +315,7 @@ export default {
       })
       this.messageContent = ''
     },
-    sendCustomMessage() {
+    sendCustomMessage () {
       if (
         this.form.data.length === 0 &&
         this.form.description.length === 0 &&
@@ -350,10 +350,10 @@ export default {
       })
       this.sendCustomDialogVisible = false
     },
-    random(min, max) {
+    random (min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min)
     },
-    sendSurvey() {
+    sendSurvey () {
       const message = this.tim.createCustomMessage({
         to: this.toAccount,
         conversationType: this.currentConversationType,
@@ -385,22 +385,22 @@ export default {
         })
       this.surveyDialogVisible = false
     },
-    chooseEmoji(item) {
+    chooseEmoji (item) {
       this.messageContent += item
     },
-    handleSendImageClick() {
+    handleSendImageClick () {
       this.$refs.imagePicker.click()
     },
-    handleSendFileClick() {
+    handleSendFileClick () {
       this.$refs.filePicker.click()
     },
-    handleSendVideoClick() {
+    handleSendVideoClick () {
       this.$refs.videoPicker.click()
     },
-    videoCall() {
+    videoCall () {
       this.$bus.$emit('video-call')
     },
-    sendImage() {
+    sendImage () {
       const message = this.tim.createImageMessage({
         to: this.toAccount,
         conversationType: this.currentConversationType,
@@ -424,7 +424,7 @@ export default {
           })
         })
     },
-    sendFile() {
+    sendFile () {
       const message = this.tim.createFileMessage({
         to: this.toAccount,
         conversationType: this.currentConversationType,
@@ -448,7 +448,7 @@ export default {
           })
         })
     },
-    sendVideo() {
+    sendVideo () {
       const message = this.tim.createVideoMessage({
         to: this.toAccount,
         conversationType: this.currentConversationType,

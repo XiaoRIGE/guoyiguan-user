@@ -205,9 +205,9 @@ export default {
     GroupSystemNoticeElement,
     CustomElement,
     VideoElement,
-    GeoElement,
+    GeoElement
   },
-  data() {
+  data () {
     return {
       renderDom: []
     }
@@ -218,7 +218,7 @@ export default {
       currentUserProfile: state => state.user.currentUserProfile
     }),
     // 是否显示头像，群提示消息不显示头像
-    showAvatar() {
+    showAvatar () {
       if (this.currentConversation.type === 'C2C' && !this.message.isRevoked) { // C2C且没有撤回的消息
         return true
       } else if (this.currentConversation.type === 'GROUP' && !this.message.isRevoked) { // group且没有撤回的消息
@@ -226,7 +226,7 @@ export default {
       }
       return false
     },
-    avatar() {
+    avatar () {
       if (this.currentConversation.type === 'C2C') {
         return this.isMine
           ? this.currentUserProfile.avatar
@@ -239,14 +239,14 @@ export default {
         return ''
       }
     },
-    currentConversationType() {
+    currentConversationType () {
       return this.currentConversation.type
     },
-    isMine() {
+    isMine () {
       // console.log(this.currentUserProfile, this.currentConversation);
       return this.message.flow === 'out'
     },
-    messagePosition() {
+    messagePosition () {
       if (
         ['TIMGroupTipElem', 'TIMGroupSystemNoticeElem'].includes(
           this.message.type
@@ -263,7 +263,7 @@ export default {
         return 'position-left'
       }
     },
-    showMessageHeader() {
+    showMessageHeader () {
       if (
         ['TIMGroupTipElem', 'TIMGroupSystemNoticeElem'].includes(
           this.message.type
@@ -278,7 +278,7 @@ export default {
     }
   },
   methods: {
-    showGroupMemberProfile(event) {
+    showGroupMemberProfile (event) {
       this.tim
         .getGroupMemberProfile({
           groupID: this.message.to,

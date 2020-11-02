@@ -55,7 +55,7 @@ export default {
     ElRadio: Radio,
     MessageBubble
   },
-  data() {
+  data () {
     return {
       showDialog: false,
       form: {
@@ -65,21 +65,21 @@ export default {
     }
   },
   computed: {
-    text() {
+    text () {
       return translateGroupSystemNotice(this.message)
     },
-    title() {
+    title () {
       if (this.message.type === this.TIM.TYPES.MSG_GRP_SYS_NOTICE) {
         return '群系统通知'
       }
       return '系统通知'
     },
-    isJoinGroupRequest() {
+    isJoinGroupRequest () {
       return this.payload.operationType === 1
     }
   },
   methods: {
-    handleGroupApplication() {
+    handleGroupApplication () {
       this.tim
         .handleGroupApplication({
           handleAction: this.form.handleAction,

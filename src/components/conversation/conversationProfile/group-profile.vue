@@ -242,9 +242,9 @@ export default {
     GroupMemberList,
     ElSelect: Select,
     ElOption: Option,
-    ElSwitch: Switch,
+    ElSwitch: Switch
   },
-  data() {
+  data () {
     return {
       showEditName: false,
       showEditFaceUrl: false,
@@ -273,27 +273,27 @@ export default {
         NeedPermission: '需要验证',
         DisableApply: '禁止加群'
       },
-      active:false
+      active: false
     }
   },
   computed: {
-    editable() {
+    editable () {
       return (
         this.groupProfile.type === this.TIM.TYPES.GRP_WORK ||
         [this.TIM.TYPES.GRP_MBR_ROLE_OWNER, this.TIM.TYPES.GRP_MBR_ROLE_ADMIN].includes(this.groupProfile.selfInfo.role)
       )
     },
-    isOwner() {
+    isOwner () {
       return this.groupProfile.selfInfo.role === this.TIM.TYPES.GRP_MBR_ROLE_OWNER
     },
-    isAdmin() {
+    isAdmin () {
       return this.groupProfile.selfInfo.role === this.TIM.TYPES.GRP_MBR_ROLE_ADMIN
     },
-    showDissmissGroup() {
+    showDissmissGroup () {
       // 好友工作群不能解散
       return this.isOwner && this.groupProfile.type !== this.TIM.TYPES.GRP_WORK
     },
-    groupType() {
+    groupType () {
       switch (this.groupProfile.type) {
         case this.TIM.TYPES.GRP_WORK:
           return '好友工作群（Work）'
@@ -309,7 +309,7 @@ export default {
     }
   },
   watch: {
-    groupProfile(groupProfile) {
+    groupProfile (groupProfile) {
       Object.assign(this, {
         showEditName: false,
         showEditFaceUrl: false,
@@ -325,17 +325,17 @@ export default {
         joinOption: groupProfile.joinOption,
         messageRemindType: groupProfile.messageRemindType,
         nameCard: groupProfile.selfInfo.nameCard || '',
-        muteAllMembers: groupProfile.muteAllMembers,
+        muteAllMembers: groupProfile.muteAllMembers
       })
     }
   },
   methods: {
-    inputFocus(ref) {
+    inputFocus (ref) {
       this.$nextTick(() => {
         this.$refs[ref].focus()
       })
     },
-    editName() {
+    editName () {
       this.tim
         .updateGroupProfile({
           groupID: this.groupProfile.groupID,
@@ -351,7 +351,7 @@ export default {
           })
         })
     },
-    editFaceUrl() {
+    editFaceUrl () {
       this.tim
         .updateGroupProfile({
           groupID: this.groupProfile.groupID,
@@ -367,33 +367,33 @@ export default {
           })
         })
     },
-    changeMuteStatus() {
+    changeMuteStatus () {
       if (this.isOwner || this.isAdmin) {
         this.tim
           .updateGroupProfile({
-          muteAllMembers: this.muteAllMembers,
-          groupID: this.groupProfile.groupID
-        })
-          .then(imResponse => {
-          this.muteAllMembers = imResponse.data.group.muteAllMembers
-          if (this.muteAllMembers) {
-            this.active = true
-            this.$store.commit('showMessage', {
-              message: '全体禁言'
-            })
-          } else {
-            this.active = false
-            this.$store.commit('showMessage', {
-              message: '取消全体禁言'
-            })
-          }
-        })
-          .catch(error => {
-          this.$store.commit('showMessage', {
-            type: 'error',
-            message: error.message
+            muteAllMembers: this.muteAllMembers,
+            groupID: this.groupProfile.groupID
           })
-        })
+          .then(imResponse => {
+            this.muteAllMembers = imResponse.data.group.muteAllMembers
+            if (this.muteAllMembers) {
+              this.active = true
+              this.$store.commit('showMessage', {
+                message: '全体禁言'
+              })
+            } else {
+              this.active = false
+              this.$store.commit('showMessage', {
+                message: '取消全体禁言'
+              })
+            }
+          })
+          .catch(error => {
+            this.$store.commit('showMessage', {
+              type: 'error',
+              message: error.message
+            })
+          })
       } else {
         this.muteAllMembers = this.groupProfile.muteAllMembers
         this.$store.commit('showMessage', {
@@ -402,7 +402,7 @@ export default {
         })
       }
     },
-    editIntroduction() {
+    editIntroduction () {
       this.tim
         .updateGroupProfile({
           groupID: this.groupProfile.groupID,
@@ -418,7 +418,7 @@ export default {
           })
         })
     },
-    editNotification() {
+    editNotification () {
       this.tim
         .updateGroupProfile({
           groupID: this.groupProfile.groupID,
@@ -434,7 +434,7 @@ export default {
           })
         })
     },
-    editJoinOption() {
+    editJoinOption () {
       this.tim
         .updateGroupProfile({
           groupID: this.groupProfile.groupID,
@@ -450,7 +450,7 @@ export default {
           })
         })
     },
-    changeOwner() {
+    changeOwner () {
       this.tim
         .changeGroupOwner({
           groupID: this.groupProfile.groupID,
@@ -470,7 +470,7 @@ export default {
           })
         })
     },
-    quitGroup() {
+    quitGroup () {
       this.tim.quitGroup(this.groupProfile.groupID).then(({ data: { groupID } }) => {
         this.$store.commit('showMessage', {
           message: '退群成功'
@@ -479,14 +479,14 @@ export default {
           this.$store.commit('resetCurrentConversation')
         }
       })
-      .catch(error => {
+        .catch(error => {
           this.$store.commit('showMessage', {
             type: 'error',
             message: error.message
           })
         })
     },
-    dismissGroup() {
+    dismissGroup () {
       this.tim.dismissGroup(this.groupProfile.groupID).then(({ data: { groupID } }) => {
         this.$store.commit('showMessage', {
           message: `群：${this.groupProfile.name || this.groupProfile.groupID}解散成功！`,
@@ -496,14 +496,14 @@ export default {
           this.$store.commit('resetCurrentConversation')
         }
       })
-      .catch(error => {
+        .catch(error => {
           this.$store.commit('showMessage', {
             type: 'error',
             message: error.message
           })
         })
     },
-    editMessageRemindType() {
+    editMessageRemindType () {
       this.tim
         .setMessageRemindType({
           groupID: this.groupProfile.groupID,
@@ -519,7 +519,7 @@ export default {
           })
         })
     },
-    editNameCard() {
+    editNameCard () {
       if (this.nameCard.trim().length === 0) {
         this.$store.commit('showMessage', {
           message: '不能设置空的群名片',

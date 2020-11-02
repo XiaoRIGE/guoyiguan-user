@@ -43,19 +43,19 @@ export default {
     ElRate: Rate
   },
   computed: {
-    text() {
+    text () {
       return this.translateCustomMessage(this.payload)
     },
-    rate() {
+    rate () {
       return parseInt(this.payload.description)
     }
   },
   methods: {
-    translateCustomMessage(payload) {
+    translateCustomMessage (payload) {
       let videoPayload = {}
-      try{
+      try {
         videoPayload = JSON.parse(payload.data)
-      } catch(e) {
+      } catch (e) {
         videoPayload = {}
       }
       if (payload.data === 'group_create') {

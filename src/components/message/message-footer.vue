@@ -22,10 +22,10 @@ export default {
       currentUserProfile: state => state.user.currentUserProfile,
       currentMemberList: state => state.group.currentMemberList
     }),
-    date() {
+    date () {
       return getFullDate(new Date(this.message.time * 1000))
     },
-    from() {
+    from () {
       const isC2C = this.currentConversation.type === this.TIM.TYPES.CONV_C2C
       // 自己发送的用昵称渲染
       if (this.isMine) {
@@ -41,7 +41,7 @@ export default {
       // 2. 群组消息，用消息体中的 nick 渲染。nameCard暂时支持不完善
       return this.message.nick || this.message.from
     },
-    isMine() {
+    isMine () {
       return this.message.flow === 'out'
     }
   }

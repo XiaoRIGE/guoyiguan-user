@@ -51,7 +51,7 @@ export default {
   components: {
     ElDivider: Divider
   },
-  data() {
+  data () {
     return {
       member: {},
       x: 0, // 显示的位置 x
@@ -59,18 +59,18 @@ export default {
       visible: false
     }
   },
-  mounted() {
+  mounted () {
     // 通过事件总线，监听 showMemebrProfile 事件
     this.$bus.$on('showMemberProfile', this.handleShowMemberProfile, this)
   },
   computed: {
-    joinTime() {
+    joinTime () {
       if (this.member.joinTime) {
         return getFullDate(new Date(this.member.joinTime * 1000))
       }
       return ''
     },
-    muteUntil() {
+    muteUntil () {
       if (this.member.muteUntil) {
         return getFullDate(new Date(this.member.muteUntil * 1000))
       }
@@ -78,18 +78,18 @@ export default {
     }
   },
   methods: {
-    handleSendMessage() {
+    handleSendMessage () {
       this.$store.dispatch('checkoutConversation', `C2C${this.member.userID}`)
       this.hide()
     },
-    handleShowMemberProfile({ event, member }) {
+    handleShowMemberProfile ({ event, member }) {
       // 可以拿到 meber 和 点击事件的 event 信息
       this.member = member || {}
       this.x = event.x
       this.y = event.y
       this.show()
     },
-    show() {
+    show () {
       if (this.visible) {
         return
       }
@@ -97,7 +97,7 @@ export default {
       window.addEventListener('click', this.handleClick, this)
       this.visible = true
     },
-    hide() {
+    hide () {
       if (!this.visible) {
         return
       }
@@ -105,7 +105,7 @@ export default {
       window.removeEventListener('click', this.handleClick, this)
       this.visible = false
     },
-    handleClick(event) {
+    handleClick (event) {
       // 判断点击区域是否是当前组件，若不是，则隐藏组件
       if (event.target !== this.$refs['member-profile-card']) {
         this.hide()

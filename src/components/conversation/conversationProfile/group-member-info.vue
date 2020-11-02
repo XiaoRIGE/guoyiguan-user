@@ -60,7 +60,7 @@ export default {
     ElPopover: Popover
   },
   props: ['member'],
-  data() {
+  data () {
     return {
       muteTime: '',
       popoverVisible: false,
@@ -75,25 +75,25 @@ export default {
       current: state => state.current
     }),
     // 是否显示踢出群成员按钮
-    showKickout() {
+    showKickout () {
       return (this.isOwner || this.isAdmin) && !this.isMine
     },
-    isOwner() {
+    isOwner () {
       return this.currentConversation.groupProfile.selfInfo.role === 'Owner'
     },
-    isAdmin() {
+    isAdmin () {
       return this.currentConversation.groupProfile.selfInfo.role === 'Admin'
     },
-    isMine() {
+    isMine () {
       return this.currentUserProfile.userID === this.member.userID
     },
-    canChangeRole() {
+    canChangeRole () {
       return (
         this.isOwner &&
         ['ChatRoom', 'Public'].includes(this.currentConversation.subType)
       )
     },
-    changeRoleTitle() {
+    changeRoleTitle () {
       if (!this.canChangeRole) {
         return ''
       }
@@ -102,12 +102,12 @@ export default {
         : '设为：Admin'
     },
     // 是否显示禁言时间
-    showMuteUntil() {
+    showMuteUntil () {
       // 禁言时间小于当前时间
       return this.member.muteUntil * 1000 > this.current
     },
     // 是否显示取消禁言按钮
-    showCancelBan() {
+    showCancelBan () {
       if (
         this.showMuteUntil &&
         this.currentConversation.type === this.TIM.TYPES.CONV_GROUP &&
@@ -118,23 +118,23 @@ export default {
       return false
     },
     // 是否显示禁言按钮
-    showBan() {
+    showBan () {
       if (this.currentConversation.type === this.TIM.TYPES.CONV_GROUP) {
         return this.isOwner || this.isAdmin
       }
       return false
     },
     // 是否显示编辑群名片按钮
-    showEditNameCard() {
+    showEditNameCard () {
       return this.isOwner || this.isAdmin
     },
     // 日期格式化后的禁言时间
-    muteUntil() {
+    muteUntil () {
       return getFullDate(new Date(this.member.muteUntil * 1000))
     }
   },
   methods: {
-    kickoutGroupMember() {
+    kickoutGroupMember () {
       this.tim
         .deleteGroupMember({
           groupID: this.currentConversation.groupProfile.groupID,
@@ -151,11 +151,11 @@ export default {
           })
         })
     },
-    changeMemberRole() {
+    changeMemberRole () {
       if (!this.canChangeRole) {
         return
       }
-      let currentRole = this.member.role
+      const currentRole = this.member.role
       this.tim
         .setGroupMemberRole({
           groupID: this.currentConversation.groupProfile.groupID,
@@ -169,7 +169,7 @@ export default {
           })
         })
     },
-    setGroupMemberMuteTime() {
+    setGroupMemberMuteTime () {
       this.tim
         .setGroupMemberMuteTime({
           groupID: this.currentConversation.groupProfile.groupID,
@@ -188,7 +188,7 @@ export default {
         })
     },
     // 取消禁言
-    cancelMute() {
+    cancelMute () {
       this.tim
         .setGroupMemberMuteTime({
           groupID: this.currentConversation.groupProfile.groupID,
@@ -205,7 +205,7 @@ export default {
           })
         })
     },
-    setGroupMemberNameCard() {
+    setGroupMemberNameCard () {
       if (this.nameCard.trim().length === 0) {
         this.$store.commit('showMessage', {
           message: '不能设置空的群名片',
