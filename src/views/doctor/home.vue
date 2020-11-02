@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-      <h1>医师工作台</h1>
+      <h1>医师工作台11</h1>
   </div>
 </template>
 
