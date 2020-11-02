@@ -4,7 +4,8 @@
       <FsHeader></FsHeader>
       <div class="content">
         <FsMenu></FsMenu>
-        <div class="container-wrap">
+        <!-- class="container-wrap" -->
+        <div >
           <keep-alive>
             <router-view v-if="$route.meta.keepAlive" />
           </keep-alive>
