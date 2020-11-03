@@ -3,7 +3,7 @@ export default {
   name: '医师',
   children: [
     {
-      path: '/home',
+      path: '/',
       name: 'home',
       component: () => import('@/views/doctor/home')
     },

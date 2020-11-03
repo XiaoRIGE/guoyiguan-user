@@ -1,11 +1,7 @@
 /* eslint-disable no-console */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import doctor from './doctor'// 医师
-import patientCenter from './patientCenter'// 患者中心
-import cooperation from './cooperation'// 门诊协作
-import resourcesManage from './resourcesManage'// 资源管理
-import setting from './setting'// 个人设置
+
 // import Cookies from 'js-cookie'
 const Layout = () => import('../layout/index.vue')
 Vue.use(VueRouter)
@@ -27,22 +23,55 @@ const routes = [
     // next()
     // },
     children: [
-      // {
-      //   path: '/home',
-      //   name: 'home',
-      //   component: () => import('@/views/doctor/home'),
-      //   meta: {
-      //     title: '医生工作台'
-      //   }
-      // },
-      // {
-      //   path: '/subscribe',
-      //   name: 'subscribe',
-      //   component: () => import('@/views/doctor/subscribe'),
-      //   meta: {
-      //     title: '门诊预约'
-      //   }
-      // },
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('@/views/doctor/home'),
+        meta: {
+          title: '首页'
+        }
+      },
+      {
+        path: '/about',
+        name: 'about',
+        component: () => import('@/views/about'),
+        meta: {
+          title: '关于我们'
+        }
+      },
+      {
+        path: '/shop',
+        name: 'shop',
+        component: () => import('@/views/shop'),
+        meta: {
+          title: '健康商城'
+        }
+      },
+      {
+        path: '/service',
+        name: 'service',
+        component: () => import('@/views/service'),
+        meta: {
+          title: '健康服务'
+        }
+      },
+      // consult
+      {
+        path: '/consult',
+        name: 'consult',
+        component: () => import('@/views/consult'),
+        meta: {
+          title: '咨询中心'
+        }
+      },
+      {
+        path: '/personCenter',
+        name: 'personCenter',
+        component: () => import('@/views/personCenter'),
+        meta: {
+          title: '个人中心'
+        }
+      },
       {
         path: '/chat',
         name: 'chat',
@@ -58,12 +87,8 @@ const routes = [
         meta: {
           title: '登录'
         }
-      },
-      ...doctor.children,
-      ...patientCenter.children,
-      ...cooperation.children,
-      ...resourcesManage.children,
-      ...setting.children
+      }
+
     ]
   }
 ]

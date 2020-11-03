@@ -12,14 +12,10 @@
       @close="handleClose"
       @select="handleSelect"
     >
-      <el-submenu index="1">
+      <!-- <el-submenu index="1">
         <template slot="title">
-
-          <span>医师</span>
+          <span>首页</span>
         </template>
-        <el-menu-item index="home">医师工作台</el-menu-item>
-        <el-menu-item index="subscribe">门诊预约</el-menu-item>
-        <el-menu-item index="review">门诊回顾</el-menu-item>
       </el-submenu>
       <el-menu-item index="patientCenter">
 
@@ -45,9 +41,26 @@
       <el-menu-item index="setting">
 
         <span slot="title">个人设置</span>
+      </el-menu-item> -->
+      <el-menu-item index="/">
+        <span slot="title">首页</span>
+      </el-menu-item>
+      <el-menu-item index="about">
+        <span slot="title">关于我们</span>
+      </el-menu-item>
+      <el-menu-item index="shop">
+        <span slot="title">健康商城</span>
+      </el-menu-item>
+      <el-menu-item index="service">
+        <span slot="title">健康服务</span>
+      </el-menu-item>
+      <el-menu-item index="consult">
+        <span slot="title">咨询中心</span>
+      </el-menu-item>
+      <el-menu-item index="personCenter">
+        <span slot="title">个人中心</span>
       </el-menu-item>
       <el-menu-item index="chat">
-
         <span slot="title">聊天室</span>
       </el-menu-item>
     </el-menu>

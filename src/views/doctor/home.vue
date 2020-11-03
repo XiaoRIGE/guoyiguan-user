@@ -7,7 +7,7 @@
     </el-carousel>
     <!-- 医师活动介绍 -->
     <div class="nav container-wrap mb-60">
-      <el-row :gutter="20">
+      <el-row class="row" :gutter="20">
         <el-col :span="7">
           <div class="left">
             <div class="top1 top-bg mb-20">
@@ -58,6 +58,29 @@
         </p>
       </div>
     </div>
+    <!-- 诊所特色 -->
+    <div class="trait container-wrap">
+      <span class="tab_title">诊所特色</span>
+      <div class="item-box">
+        <el-row class="row" :gutter="20">
+          <el-col v-for="(item,index) in 6" :key="index" class="item" :span="8">
+            <div class="item-wrap">
+              <img
+              src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3600830894,1655809135&fm=26&gp=0.jpg"
+            />
+            <div class="right">
+              <p class="item-name">内科</p>
+              <span class="item-desc"
+                >包括呼吸内科，消化内科，心血管内科，神经内科，肿瘤科，内分泌科，血液内科，传染病科，小儿内科等。呼吸内科包括呼吸内科，消化内科，心血管内科，神经内科，肿瘤科，内分泌科，血液内科，传染病科，小儿内科等。呼吸内科</span
+              >
+            </div>
+            </div>
+
+          </el-col>
+
+        </el-row>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -89,6 +112,9 @@ export default {
   // 医师活动介绍
   .nav {
     // @include flex-center(flex-start);
+    .row {
+      width: 100%;
+    }
     .left {
       .top-bg {
         box-sizing: border-box;
@@ -147,6 +173,7 @@ export default {
     padding: 20px;
     height: 140px;
     background: #ffffff;
+    margin-bottom: 60px;
     .title {
       @include flex-center(space-between);
       &-name {
@@ -175,6 +202,54 @@ export default {
       }
     }
   }
+  .trait {
+    padding-bottom: 60px;
+    .tab_title {
+      display: inline-block;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: 500;
+      color: #268cff;
+      line-height: 29px;
+      border-bottom: 6px solid #268cff;
+    }
+    .item-box {
+      .row {
+        width: 100%;
+      }
+      .item {
+        .item-wrap {
+          @include flex-center(space-between,flex-start);
+        box-sizing: border-box;
+        background: #ffffff;
+        padding: 20px;
+        margin-bottom: 20px;
+        img {
+          width: 80px;
+          height: 80px;
+          margin-right: 20px;
+        }
+        .item-name {
+          margin-bottom: 10px;
+          font-size: 18px;
+          font-weight: 500;
+          color: #268cff;
+          line-height: 19px;
+        }
+        .item-desc {
+          font-size: 15px;
+          font-weight: 300;
+          color: #666666;
+          line-height: 24px;
+          @include ellipsis-num(3);
+        }
+      }
+        }
+
+    }
+  }
+
   ::v-deep {
     .el-carousel__indicator--horizontal {
       margin-right: 20px;
