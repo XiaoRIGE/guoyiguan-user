@@ -53,3 +53,9 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+// element样式重置
+.el-button--primary {
+  background: #268CFF;
+  border-color:#268CFF ;
+}

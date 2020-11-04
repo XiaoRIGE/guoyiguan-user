@@ -37,7 +37,8 @@ export default {
 .layout {
   .content {
     height: calc(100vh - 270px);
-    background: #fff;
+    // background: #fff;
+    background: #F5F6F7;
     overflow-y: auto;
   }
 }

@@ -73,21 +73,54 @@ const routes = [
         }
       },
       {
+        path: '/register',
+        name: 'register',
+        component: () => import('@/views/personCenter/register'),
+        meta: {
+          title: '新用户注册'
+        }
+      },
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/personCenter/login'),
+        meta: {
+          title: '登录'
+        }
+      },
+      // forget
+      {
+        path: '/forget',
+        name: 'forget',
+        component: () => import('@/views/personCenter/forget'),
+        meta: {
+          title: '忘记密码'
+        }
+      },
+      {
+        path: '/message',
+        name: 'message',
+        component: () => import('@/views/personCenter/message'),
+        meta: {
+          title: '消息'
+        }
+      },
+      {
         path: '/chat',
         name: 'chat',
         component: () => import('@/views/chat/index'),
         meta: {
           title: '聊天'
         }
-      },
-      {
-        path: '/login',
-        name: 'login',
-        component: () => import('@/views/login'),
-        meta: {
-          title: '登录'
-        }
       }
+      // {
+      //   path: '/login',
+      //   name: 'login',
+      //   component: () => import('@/views/login'),
+      //   meta: {
+      //     title: '登录'
+      //   }
+      // }
 
     ]
   }
