@@ -1,32 +1,34 @@
 <!-- =========================================================================================
-     File Name: prescription
-     Description: 药方管理
-     Component Name: prescription
+     File Name: goodDetail
+     Description: 商品详情
+     Component Name: goodDetail
      ----------------------------------------------------------------------------------------
      Item Name:
      Author: srj
-     Creation time:  2020-10-26 20:38:02
-     Change time:  2020-10-26 20:38:02
+     Creation time:  2020-11-14 14:11:53
+     Change time:  2020-11-14 14:11:53
 ========================================================================================== -->
 <template>
-  <div class="prescription">
-      <h1>中草药方剂管理</h1>
-  </div>
+    <div class="goodDetail">
+      <h1>商品详情</h1>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'prescription',
+  name: 'goodDetail',
   data () {
     return {
 
     }
+  },
+  created () {
+  },
+  methods: {
   }
 }
 </script>
 
-<style lang="scss" scoped>
-  .prescription{
-
-  }
+<style scoped lang="scss">
+.goodDetail{}
 </style>

@@ -1,32 +1,31 @@
 <!-- =========================================================================================
-     File Name: acupuncture
-     Description: 针灸管理
-     Component Name: acupuncture
+     File Name: shopSettlement
+     Description: 购物车结算
+     Component Name: shopSettlement
      ----------------------------------------------------------------------------------------
      Item Name:
      Author: srj
-     Creation time:  2020-10-26 20:38:02
-     Change time:  2020-10-26 20:38:02
+     Creation time:  2020-11-14 14:20:14
+     Change time:  2020-11-14 14:20:14
 ========================================================================================== -->
 <template>
-  <div class="acupuncture">
-      <h1>针灸管理</h1>
+  <div class="shopSettlement">
+    <h1>购物车结算</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'acupuncture',
+  name: 'shopSettlement',
   data () {
-    return {
-
-    }
-  }
+    return {}
+  },
+  created () {},
+  methods: {}
 }
 </script>
 
-<style lang="scss" scoped>
-  .acupuncture{
-
-  }
+<style scoped lang="scss">
+.shopSettlement {
+}
 </style>
