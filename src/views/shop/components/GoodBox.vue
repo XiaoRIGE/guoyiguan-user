@@ -9,7 +9,7 @@
      Change time:  2020-11-14 15:10:09
 ========================================================================================== -->
 <template>
-  <div class="GoodBox cursor">
+  <div @click="goDetail" class="GoodBox cursor">
     <img
       src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3857984119,1275231702&fm=26&gp=0.jpg"
       class="logo"
@@ -29,7 +29,11 @@ export default {
     return {}
   },
   created () {},
-  methods: {}
+  methods: {
+    goDetail () {
+      this.$router.push({ name: 'goodDetail', query: { id: 23 } })
+    }
+  }
 }
 </script>
 
