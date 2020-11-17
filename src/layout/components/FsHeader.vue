@@ -2,7 +2,7 @@
   <div class="fs-header">
     <div class="container-wrap">
       <div class="left">
-        <img src="../../assets/image/logo@2x.png" />
+        <img @click="goRouter('home')" src="../../assets/image/logo@2x.png" class="cursor"/>
       </div>
       <div class="right">
         <!-- 简繁切换demo -->
@@ -10,7 +10,7 @@
         {{ $t("message.hint1") }}
         <span @click="changeLanguage">切换语言</span> -->
         <div class="user-info">
-          <el-button class="mr-20" type="text">购物车</el-button>
+          <el-button @click="goRouter('shopCart')" class="mr-20" type="text">购物车</el-button>
           <el-button class="mr-20" type="text">立即预约</el-button>
           <el-popover placement="bottom" trigger="click">
             <el-button>退出登录</el-button>
@@ -41,6 +41,9 @@ export default {
     changeLanguage () {
       const lang = this.$i18n.locale === 'zh' ? 'tw' : 'zh'
       this.$i18n.locale = lang
+    },
+    goRouter (name) {
+      this.$router.push({ name })
     }
   }
 }

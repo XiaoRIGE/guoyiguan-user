@@ -43,8 +43,8 @@
           <el-checkbox-group v-model="ruleForm.agreement">
             <el-checkbox name="agreement">
               <span
-                >阅读并同意《 <span class="color-blue">用户协议</span>》《
-                <span class="color-blue">隐私协议</span>》
+                >阅读并同意《 <span @click="goRouter('aggrement','user')" class="color-blue">用户协议</span>》《
+                <span @click="goRouter('aggrement','privacy')" class="color-blue">隐私协议</span>》
               </span>
             </el-checkbox>
           </el-checkbox-group>
@@ -87,6 +87,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           alert('submit!')
+          this.$router.push({ name: 'message' })
         } else {
           console.log('error submit!!')
           return false
@@ -95,6 +96,9 @@ export default {
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()
+    },
+    goRouter (name, type) {
+      this.$router.push({ name, query: { type } })
     }
   }
 }

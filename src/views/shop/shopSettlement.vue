@@ -31,7 +31,7 @@
             沙田圓洲角源順圍2號冠華大廈地下A10-A11號鋪(第一城站D出口行2分鐘)
           </p>
         </div>
-        <p class="address-box">
+        <p v-if="form.resource === '快遞'" class="address-box">
           <span>收貨地址：</span>
           <span class="cursor color-primary">管理收貨地址</span>
         </p>
@@ -44,21 +44,21 @@
         ></el-input> -->
         <!-- 選擇快遞并且有地址 -->
         <div class="has-address">
-          <div class="address-item current">
+          <div class="address-item cursor current">
             <p class="name">
               <span>王二（收）</span>
               <span>19956457823</span>
             </p>
             <p class="address-name">香港湾仔区港湾道23号鹰君中心地下G05-06铺</p>
-            <img src="../../assets/image/checked@2x.png" class="checked-icon">
+            <img src="../../assets/image/checked@2x.png" class="checked-icon" />
+            <p class="default-address">默認地址</p>
           </div>
-          <div class="address-item ">
+          <div class="address-item cursor">
             <p class="name">
               <span>張三（收）</span>
               <span>19956457823</span>
             </p>
             <p class="address-name">香港湾仔区港湾道23号鹰君中心地下G05-06铺</p>
-
           </div>
         </div>
       </el-form>
@@ -130,7 +130,7 @@
             </div>
           </div>
           <div class="flex-end">
-            <div class="submit-btn">提交訂單</div>
+            <div @click="submit" class="submit-btn cursor">提交訂單</div>
           </div>
         </div>
       </div>
@@ -191,14 +191,23 @@ export default {
     }
   },
   created () {},
-  methods: {}
+  methods: {
+    submit () {
+      this.$notify({
+        title: '成功',
+        message: '提交訂單成功',
+        type: 'success'
+      })
+      this.$router.push({ name: 'home' })
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .shopSettlement {
   .container-wrap {
-    background: #FFFFFF;
+    background: #ffffff;
     padding: 40px;
     .myform {
       margin-bottom: 40px;
@@ -238,7 +247,7 @@ export default {
             font-weight: 500;
             color: #222222;
             line-height: 16px;
-            border-bottom: 1px solid #DDDDDD;
+            border-bottom: 1px solid #dddddd;
           }
           .address-name {
             font-size: 14px;
@@ -253,9 +262,23 @@ export default {
             right: 0;
             width: 32px;
           }
+          .default-address {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 60px;
+            height: 26px;
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 12px;
+            font-family: STHeitiSC-Light, STHeitiSC;
+            font-weight: 300;
+            color: #ffffff;
+            line-height: 26px;
+            text-align: center;
+          }
         }
         .current {
-          background: url('../../assets/image/current-address.png');
+          background: url("../../assets/image/current-address.png");
           background-size: 290px 90px;
           background-repeat: no-repeat;
         }
@@ -269,7 +292,7 @@ export default {
         font-weight: 500;
         color: #222222;
         line-height: 19px;
-        border-bottom: 2px solid #268CFF;
+        border-bottom: 2px solid #268cff;
       }
       .info-box {
         @include flex-center(flex-start);
@@ -280,7 +303,7 @@ export default {
       }
       .bottom {
         @include flex-center(flex-end);
-        background: #F5F6F7;
+        background: #f5f6f7;
         padding: 20px 10px;
       }
       .tips-box {
@@ -296,7 +319,7 @@ export default {
           padding: 20px 40px;
           width: 505px;
           height: 206px;
-          background: #FFFFFF;
+          background: #ffffff;
           border: 2px solid rgba(255, 37, 0, 0.2);
           p {
             text-align: right;
@@ -313,18 +336,18 @@ export default {
             font-size: 46px;
             font-family: STHeitiSC-Medium, STHeitiSC;
             font-weight: 500;
-            color: #FF2500;
+            color: #ff2500;
             line-height: 47px;
           }
         }
         .submit-btn {
           width: 200px;
           height: 60px;
-          background: #FF2500;
+          background: #ff2500;
           font-size: 18px;
           font-family: STHeitiSC-Medium, STHeitiSC;
           font-weight: 500;
-          color: #FFFFFF;
+          color: #ffffff;
           text-align: center;
           line-height: 60px;
         }
@@ -335,7 +358,7 @@ export default {
           font-size: 18px;
           font-family: STHeitiSC-Medium, STHeitiSC;
           font-weight: 500;
-          color: #FF2500;
+          color: #ff2500;
           line-height: 19px;
         }
       }

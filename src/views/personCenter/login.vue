@@ -39,8 +39,8 @@
             >
           </el-form-item>
           <p class="tips">
-            <span>忘记密码？</span>
-            <span>注册</span>
+            <span class="cursor" @click="goRouter('forget')">忘记密码？</span>
+            <span class="cursor" @click="goRouter('register')">注册</span>
           </p>
         </el-form>
       </div>
@@ -80,6 +80,9 @@ export default {
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()
+    },
+    goRouter (name) {
+      this.$router.push({ name })
     }
   }
 }

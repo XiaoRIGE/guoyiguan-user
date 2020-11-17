@@ -4,13 +4,13 @@
       <el-menu
         :default-active="activeName"
         mode="horizontal"
-        :router="true"
+        :router="false"
         :unique-opened="true"
         @open="handleOpen"
         @close="handleClose"
         @select="handleSelect"
       >
-        <el-menu-item index="/">
+        <el-menu-item index="home">
           <span slot="title">首页</span>
         </el-menu-item>
         <el-menu-item index="about">
@@ -46,8 +46,9 @@ export default {
   },
   computed: {
     activeName: function () {
-      console.log(this.$route.name, 'this.$route.name')
-      return this.$route.name
+      // return this.$route.name
+      const currentMenu = this.$route.path.split('/')
+      return currentMenu[1]
     }
   },
 
@@ -61,6 +62,7 @@ export default {
     },
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
+      this.$router.push({ name: key })
     }
   }
 }

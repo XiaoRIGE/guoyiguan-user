@@ -108,6 +108,7 @@ export default {
           yunfei: '￥10.00'
         }
       ],
+      checked: false,
       multipleSelection: []
     }
   },

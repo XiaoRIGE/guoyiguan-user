@@ -24,8 +24,8 @@ const routes = [
     // },
     children: [
       {
-        path: '/',
-        name: '/',
+        path: '/home',
+        name: 'home',
         component: () => import('@/views/doctor/home'),
         meta: {
           title: '首页'
@@ -89,12 +89,23 @@ const routes = [
           title: '咨询中心'
         }
       },
+      // 個人中心模塊
       {
         path: '/personCenter',
         name: 'personCenter',
         component: () => import('@/views/personCenter'),
         meta: {
           title: '个人中心'
+        }
+      },
+      // patientReview
+      // 患者回顧
+      {
+        path: '/personCenter/patientReview',
+        name: 'patientReview',
+        component: () => import('@/views/personCenter/patientReview'),
+        meta: {
+          title: '患者回顧'
         }
       },
       {
@@ -118,6 +129,15 @@ const routes = [
         path: '/forget',
         name: 'forget',
         component: () => import('@/views/personCenter/forget'),
+        meta: {
+          title: '忘记密码'
+        }
+      },
+      // 协议 用户协议/隐私协议
+      {
+        path: '/personCenter/aggrement',
+        name: 'aggrement',
+        component: () => import('@/views/personCenter/aggrement'),
         meta: {
           title: '忘记密码'
         }

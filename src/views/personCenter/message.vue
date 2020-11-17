@@ -12,9 +12,8 @@
   <div class="message container-wrap">
     <div class="wrapper-box">
       <div class="wrapper">
-        <!-- <p>恭喜你注册成功</p> -->
-        <p>恭喜你密码重置成功</p>
-
+        <p>恭喜你注册成功</p>
+        <!-- <p>恭喜你密码找回成功</p> -->
         <el-button type="primary" class="w-300" @click="submitForm()"
           >进入首页</el-button
         >
@@ -31,7 +30,7 @@ export default {
   },
   methods: {
     submitForm () {
-      this.$router.push('/')
+      this.$router.push({ name: 'home' })
     }
   }
 }

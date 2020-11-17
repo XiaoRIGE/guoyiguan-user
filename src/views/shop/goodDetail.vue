@@ -28,7 +28,14 @@
           <div class="price mb-20">￥100/盒</div>
           <div class="tips mb-20">
             配送：香港至四川（運費三十元）
-            <span class="other">其他</span>
+            <el-popover
+            placement="right"
+            width="480"
+            trigger="click">
+            <ChooseCity></ChooseCity>
+            <span slot="reference" class="other cursor">其他</span>
+          </el-popover>
+
           </div>
           <div class="number">
             <span class="label">數量：</span>
@@ -85,6 +92,7 @@
 </template>
 
 <script>
+import ChooseCity from './components/ChooseCity'
 export default {
   name: 'goodDetail',
   data () {
@@ -96,6 +104,7 @@ export default {
       num: ''
     }
   },
+  components: { ChooseCity },
   created () {},
   methods: {
     handleChange () {
