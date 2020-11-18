@@ -24,6 +24,14 @@ const routes = [
     // },
     children: [
       {
+        path: '/',
+        name: '',
+        component: () => import('@/views/doctor/home'),
+        meta: {
+          title: '首页'
+        }
+      },
+      {
         path: '/home',
         name: 'home',
         component: () => import('@/views/doctor/home'),
@@ -72,14 +80,41 @@ const routes = [
           title: '购物车结算'
         }
       },
+      // 健康服务模块
       {
         path: '/service',
         name: 'service',
-        component: () => import('@/views/service'),
+        component: () => import('@/views/service/index'),
         meta: {
           title: '健康服务'
         }
       },
+      {
+        path: '/service/serviceScope',
+        name: 'serviceScope',
+        component: () => import('@/views/service/serviceScope'),
+        meta: {
+          title: '服务范围'
+        }
+      },
+      {
+        path: '/service/clinicDetail',
+        name: 'clinicDetail',
+        component: () => import('@/views/service/clinicDetail'),
+        meta: {
+          title: '诊所详情'
+        }
+      },
+      // doctorDetail
+      {
+        path: '/service/doctorDetail',
+        name: 'doctorDetail',
+        component: () => import('@/views/service/doctorDetail'),
+        meta: {
+          title: '医师详情'
+        }
+      },
+
       // consult
       {
         path: '/consult',
