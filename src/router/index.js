@@ -134,7 +134,7 @@ const routes = [
       {
         path: '/personCenter',
         name: 'personCenter',
-        component: () => import('@/views/personCenter'),
+        component: () => import('@/views/personCenter/index'),
         meta: {
           title: '个人中心'
         }

@@ -15,7 +15,7 @@
         <!-- <router-view></router-view> -->
 
       </div>
-      <FsFotter></FsFotter>
+      <FsFotter ></FsFotter>
     </div>
   </div>
 </template>

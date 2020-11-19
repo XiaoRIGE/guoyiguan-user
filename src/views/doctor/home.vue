@@ -33,7 +33,7 @@
             <div class="top2 top-bg">
               <p class="title">
                 <span class="title-name">最新消息</span>
-                <span class="title-more">查看更多</span>
+                <span class="title-more cursor">查看更多</span>
               </p>
               <p
                 v-for="(item, index) in 4"
@@ -52,7 +52,7 @@
           <div class="center">
             <div class="center-bg">
               <h1>自助医疗系统</h1>
-              <img src="../../assets/image/bg-center.png" />
+              <img src="../../assets/image/bg-center.png" class="cursor"/>
             </div>
           </div>
         </el-col>
@@ -102,7 +102,7 @@
             class="item"
             :span="8"
           >
-            <div class="item-wrap">
+            <div class="item-wrap cursor">
               <img src="../../assets/image/bg-xinfei.png" />
               <div class="right">
                 <p class="item-name">内科</p>
@@ -122,7 +122,7 @@
         <span @click="goRouter('patientReview')" class="title-more cursor">查看更多></span>
       </div>
       <div class="content-box">
-        <p v-for="(item, index) in 8" :key="index" class="item mb-20">
+        <p v-for="(item, index) in 8" :key="index" class="item cursor mb-20">
           中風後遺症治療
         </p>
       </div>
@@ -191,7 +191,7 @@ export default {
           }
         }
         .info-item {
-          padding-bottom: 10px;
+          // padding-bottom: 10px;
           font-size: 16px;
           font-weight: 300;
           color: #222222;
