@@ -17,7 +17,7 @@
             <img
               slot="reference"
               class="avator mr-20 cursor"
-              src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2625008281,94811485&fm=26&gp=0.jpg"
+              src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2328622225,2844636259&fm=26&gp=0.jpg"
             />
           </el-popover>
 

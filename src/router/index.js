@@ -105,7 +105,6 @@ const routes = [
           title: '诊所详情'
         }
       },
-      // doctorDetail
       {
         path: '/service/doctorDetail',
         name: 'doctorDetail',
@@ -114,14 +113,21 @@ const routes = [
           title: '医师详情'
         }
       },
-
-      // consult
+      // 資訊中心
       {
         path: '/consult',
         name: 'consult',
-        component: () => import('@/views/consult'),
+        component: () => import('@/views/consult/index'),
         meta: {
-          title: '咨询中心'
+          title: '资讯中心'
+        }
+      },
+      {
+        path: '/consult/consultDetail',
+        name: 'consultDetail',
+        component: () => import('@/views/consult/consultDetail'),
+        meta: {
+          title: '资讯詳情'
         }
       },
       // 個人中心模塊

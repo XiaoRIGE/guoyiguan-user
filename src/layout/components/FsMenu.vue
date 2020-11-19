@@ -23,7 +23,7 @@
           <span slot="title">健康服务</span>
         </el-menu-item>
         <el-menu-item index="consult">
-          <span slot="title">咨询中心</span>
+          <span slot="title">资讯中心</span>
         </el-menu-item>
         <el-menu-item index="personCenter">
           <span slot="title">个人中心</span>
