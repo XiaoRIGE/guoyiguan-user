@@ -42,14 +42,36 @@
           </li>
         </ul>
       </div>
-      <div class="content"></div>
+      <div class="content">
+        <UserInfo v-show="current === 1"/>
+        <Accountsecurity v-show="current === 2"/>
+        <MyOrder v-show="current === 3"/>
+        <DiagnosisRecord v-show="current === 4"/>
+        <SubscribeRecord v-show="current === 5"/>
+        <MyIntegral v-show="current === 6"/>
+        <MyAddress v-show="current === 7"/>
+        <MyFeedback v-show="current === 8"/>
+        <ShowSetting v-show="current === 9"/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import UserInfo from './components/UserInfo'
+import Accountsecurity from './components/Accountsecurity'
+import DiagnosisRecord from './components/DiagnosisRecord'
+import SubscribeRecord from './components/SubscribeRecord'
+import MyOrder from './components/MyOrder'
+import MyIntegral from './components/MyIntegral'
+import MyAddress from './components/MyAddress'
+import MyFeedback from './components/MyFeedback'
+import ShowSetting from './components/ShowSetting'
+
 export default {
+
   name: 'personCenter',
+  components: { UserInfo, Accountsecurity, DiagnosisRecord, SubscribeRecord, MyOrder, MyIntegral, MyAddress, MyFeedback, ShowSetting },
   data () {
     return {
       current: 1
@@ -87,7 +109,7 @@ export default {
       background: #fff;
       flex: 1;
       padding: 40px 60px;
-      height: 670px;
+      min-height: 670px;
     }
   }
 }
