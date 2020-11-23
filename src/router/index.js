@@ -139,6 +139,24 @@ const routes = [
           title: '个人中心'
         }
       },
+      // 修改密码
+      {
+        path: '/personCenter/editPwd',
+        name: 'editPwd',
+        component: () => import('@/views/personCenter/editPwd'),
+        meta: {
+          title: '修改密码'
+        }
+      },
+      // 修改手机号
+      {
+        path: '/personCenter/editPhone',
+        name: 'editPhone',
+        component: () => import('@/views/personCenter/editPhone'),
+        meta: {
+          title: '修改手机号'
+        }
+      },
       // patientReview
       // 患者回顧
       {

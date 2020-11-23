@@ -10,17 +10,19 @@
 ========================================================================================== -->
 <template>
   <div class="Accountsecurity">
-    <h1>账号安全</h1>
     <ul>
       <li>
         <span>登錄密碼</span>
-        <el-button type="primary">修改</el-button>
+        <el-button @click="edit(1)" type="primary">修改</el-button>
       </li>
       <li>
-        <span>綁定手機號 <span>{{phone}}</span></span>
-        <el-button type="primary">修改</el-button>
+        <span
+          >綁定手機號 <span>{{ phone }}</span></span
+        >
+        <el-button @click="edit(2)" type="primary">修改</el-button>
       </li>
     </ul>
+
   </div>
 </template>
 
@@ -33,7 +35,16 @@ export default {
     }
   },
   created () {},
-  methods: {}
+  methods: {
+    edit (type) {
+      this.editType = type
+      if (type === 1) {
+        this.$router.push({ name: 'editPwd' })
+      } else if (type === 2) {
+        this.$router.push({ name: 'editPhone' })
+      }
+    }
+  }
 }
 </script>
 
