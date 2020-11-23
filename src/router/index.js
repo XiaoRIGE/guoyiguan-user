@@ -157,6 +157,15 @@ const routes = [
           title: '修改手机号'
         }
       },
+      // 我的订单详情
+      {
+        path: '/personCenter/orderDetail',
+        name: 'orderDetail',
+        component: () => import('@/views/personCenter/orderDetail'),
+        meta: {
+          title: '我的订单'
+        }
+      },
       // patientReview
       // 患者回顧
       {
