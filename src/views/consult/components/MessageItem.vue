@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .MessageItem {
   .item-box {
     @include flex-center(flex-start,flex-start);

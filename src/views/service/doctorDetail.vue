@@ -82,7 +82,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .doctorDetail {
   .container-wrap {
     background: #ffffff;

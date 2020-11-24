@@ -110,7 +110,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .my-profile-wrapper
   width 50px
   height 50px

@@ -43,7 +43,7 @@
           maxlength="200"
         ></el-input> -->
         <!-- 選擇快遞并且有地址 -->
-        <div class="has-address">
+        <div v-if="form.resource === '快遞'" class="has-address">
           <div class="address-item cursor current">
             <p class="name">
               <span>王二（收）</span>
@@ -66,7 +66,7 @@
         <p class="title">確認訂單信息</p>
         <el-table :data="tableData" ref="mytable" style="width: 100%">
           <el-table-column prop="info" label="商品信息" min-width="180">
-            <template slot-scope="scope">
+            <template scoped >
               <div class="info-box">
                 <img class="good-logo" :src="scope.row.logo" alt="" />
                 <span>{{ scope.row.info }}</span>
@@ -76,7 +76,7 @@
           <el-table-column prop="name" label="單價" width="180">
           </el-table-column>
           <el-table-column prop="number" label="數量">
-            <template slot-scope="scope">
+            <template scoped >
               <el-input-number
                 v-model="scope.row.number"
                 @change="handleChange(scope)"
@@ -204,7 +204,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .shopSettlement {
   .container-wrap {
     background: #ffffff;

@@ -11,7 +11,7 @@
 <template>
   <div class="DiagnosisRecord">
     <div class="container-wrap">
-      <el-form ref="form" :model="form">
+      <el-form class="search-box" ref="form" :model="form">
         <el-row :gutter="20">
           <el-col :span="4">
             <el-form-item>
@@ -55,8 +55,8 @@
           <el-table-column prop="time" label="就诊时间"> </el-table-column>
           <el-table-column prop="status" label="就诊状态"> </el-table-column>
           <el-table-column label="操作">
-            <template>
-              <el-button type="text">查看</el-button>
+            <template scope="scope">
+              <el-button @click="goRouter(scope.row)" type="text">查看</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -82,6 +82,7 @@ export default {
         name: 'shanghai',
         region: 'shanghai'
       },
+      value1: '',
       paginationConfig: {
         total: 4,
         currentPage: 1,
@@ -127,12 +128,27 @@ export default {
   methods: {
     pageChange (index) {
       this.paginationConfig.currentPage = index
+    },
+    goRouter (item) {
+      console.log(item)
+      this.$router.push({ name: 'recordDetail' })
     }
   }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .DiagnosisRecord {
+  .container-wrap {
+    .search-box {
+      .el-button {
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+        text-align: center;
+      }
+    }
+  }
 }
 </style>

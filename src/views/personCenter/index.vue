@@ -37,9 +37,9 @@
           <li @click="current = 8" :class="current === 8 ? 'current' : ''">
             意見反饋
           </li>
-          <li @click="current = 9" :class="current === 9 ? 'current' : ''">
+          <!-- <li @click="current = 9" :class="current === 9 ? 'current' : ''">
             顯示設置
-          </li>
+          </li> -->
         </ul>
       </div>
       <div class="content">
@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .personCenter {
   .container-wrap {
     @include flex-center(flex-start, flex-start);

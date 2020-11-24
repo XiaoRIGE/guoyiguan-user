@@ -91,7 +91,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .file-element-wrapper {
   cursor pointer
 }

@@ -95,7 +95,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .red {
     color: #F35C59;
     padding: 0 5px;

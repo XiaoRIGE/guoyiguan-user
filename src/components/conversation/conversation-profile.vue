@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .conversation-profile-wrapper
   background-color $white
   height 100%

@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .avatar
   background-color $first
   text-align center

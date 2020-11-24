@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .item {
   padding-left: 20px;
   width: 100%;

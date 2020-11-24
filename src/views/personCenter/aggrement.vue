@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .aggrement {
   padding: 40px 100px;
   background: #fff;

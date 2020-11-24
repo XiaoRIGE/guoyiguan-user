@@ -161,7 +161,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 /* 当前会话的骨架屏 */
 .current-conversation-wrapper
   height $height

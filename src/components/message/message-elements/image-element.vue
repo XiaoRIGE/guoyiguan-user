@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .image-element
   max-width 250px
   cursor zoom-in

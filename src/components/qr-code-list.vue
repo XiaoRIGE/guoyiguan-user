@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped >
 .qr-code-list-wrapper {
   /*width: 400px;*/
 }

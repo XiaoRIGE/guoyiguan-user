@@ -18,21 +18,21 @@ export default {
     ElSelect: Select,
     ElOption: Option
   },
-  data() {
+  data () {
     return {
       userID: 'user0',
       logo: logo
     }
   },
   methods: {
-    login() {
+    login () {
       this.$store.dispatch('login', this.userID)
     }
   }
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .login-wrapper {
   display: flex;
   align-items: center;

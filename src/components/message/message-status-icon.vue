@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .message-send-fail {
   margin-right: 8px;
   background-color: #f35f5f;

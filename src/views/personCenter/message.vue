@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .message {
   .wrapper-box {
     height: calc(100vh - 390px);

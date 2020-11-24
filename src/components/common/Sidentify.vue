@@ -131,7 +131,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style scoped >
 .s-canvas {
  height: 38px;
 

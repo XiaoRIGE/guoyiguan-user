@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .group-member-list-wrapper
   .header
     height 50px

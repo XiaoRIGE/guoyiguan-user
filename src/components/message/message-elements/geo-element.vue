@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .geo-element {
   text-decoration: none;
   color: #000;

@@ -128,7 +128,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .shop {
   background: #F5F6F7;
   .search-box {

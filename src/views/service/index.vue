@@ -161,7 +161,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .service {
   .container-wrap {
     .head-box {

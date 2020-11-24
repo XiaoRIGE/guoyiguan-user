@@ -125,7 +125,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .list-container
   height 100%
   width 100%

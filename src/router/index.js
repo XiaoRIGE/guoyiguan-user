@@ -166,6 +166,15 @@ const routes = [
           title: '我的订单'
         }
       },
+      // 就诊记录详情
+      {
+        path: '/personCenter/recordDetail',
+        name: 'recordDetail',
+        component: () => import('@/views/personCenter/recordDetail'),
+        meta: {
+          title: '我的订单'
+        }
+      },
       // patientReview
       // 患者回顧
       {

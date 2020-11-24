@@ -98,7 +98,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .sound-element-wrapper {
   padding: 0px 10px;
   cursor: pointer;

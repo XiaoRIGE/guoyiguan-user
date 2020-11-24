@@ -115,7 +115,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .member-profile-card-wrapper {
   max-width: 300px;
   padding: 24px;

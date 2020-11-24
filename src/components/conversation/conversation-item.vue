@@ -192,7 +192,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 
 .conversation-item-container
   padding 15px 20px

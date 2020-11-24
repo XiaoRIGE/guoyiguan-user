@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .fotter {
   box-sizing: border-box;
   padding: 40px 0;

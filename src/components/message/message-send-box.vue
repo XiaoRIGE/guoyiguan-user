@@ -476,7 +476,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 #message-send-box-wrapper {
   box-sizing: border-box;
   overflow: hidden;

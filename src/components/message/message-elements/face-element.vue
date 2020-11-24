@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .face-element-wrapper
   img
     max-width 90px

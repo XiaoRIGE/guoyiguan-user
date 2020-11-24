@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .layout {
   .content {
     height: calc(100vh - 270px);

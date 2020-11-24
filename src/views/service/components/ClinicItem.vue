@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .ClinicItem {
   .logo {
     width: 310px;

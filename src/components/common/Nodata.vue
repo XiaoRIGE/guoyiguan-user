@@ -30,7 +30,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .nodata-box {
   text-align: center;
   padding: 30px;

@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .scroll-container
   overflow-y scroll
   flex 1

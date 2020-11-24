@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .video
   width 100%
   max-height 300px

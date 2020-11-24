@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .consult {
   .container-wrap {
     @include flex-center(flex-start,flex-start);

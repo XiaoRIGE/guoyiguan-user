@@ -102,7 +102,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .card {
   background: #fff;
   padding: 12px;

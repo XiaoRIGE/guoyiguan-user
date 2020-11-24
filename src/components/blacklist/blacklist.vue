@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .blacklist-wrapper {
   padding: 12px;
   overflow-y: scroll;

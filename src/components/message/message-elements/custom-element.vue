@@ -86,7 +86,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .text
   font-weight bold
 .title

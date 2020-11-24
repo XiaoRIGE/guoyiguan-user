@@ -99,7 +99,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped >
 .image-previewer-wrapper {
   position: fixed;
   width: 100%;

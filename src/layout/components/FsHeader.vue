@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .fs-header {
   height: 80px;
   width: 100%;

@@ -97,7 +97,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .OrderItem {
   .head {
     height: 45px;

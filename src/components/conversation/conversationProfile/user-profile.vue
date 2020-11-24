@@ -92,7 +92,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .profile-user
   width 100%
   text-align center

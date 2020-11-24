@@ -172,7 +172,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .side-bar-wrapper {
   height: 100%;
   color: $black;

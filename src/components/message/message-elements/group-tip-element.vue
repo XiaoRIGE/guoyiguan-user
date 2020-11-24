@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .group-tip-element-wrapper
   background $white
   padding 4px 15px

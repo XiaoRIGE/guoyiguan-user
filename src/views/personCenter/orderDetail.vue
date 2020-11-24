@@ -32,7 +32,7 @@
       <div class="content">
         <el-table :data="tableData" style="width: 100%">
           <el-table-column prop="name" label="商品" min-width="400">
-            <template slot-scope="scope">
+            <template scoped >
               <div class="cell-wrapper">
                 <img
                   src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3327024262,3610326637&fm=26&gp=0.jpg"
@@ -101,7 +101,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .orderDetail {
   .container-wrap {
     padding: 40px;

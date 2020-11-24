@@ -294,7 +294,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .message-wrapper {
   margin: 20px 0;
 

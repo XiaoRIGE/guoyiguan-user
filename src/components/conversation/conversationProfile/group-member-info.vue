@@ -236,7 +236,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .label {
   color: rgb(204, 200, 200);
 }

@@ -125,7 +125,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .UserInfo {
   .img-box {
     @include flex-center(flex-start);

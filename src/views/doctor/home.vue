@@ -152,7 +152,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .home {
   background: #f5f6f7;
   .carousel {

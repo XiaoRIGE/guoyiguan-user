@@ -88,7 +88,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .login {
   .wrapper-box {
     height: calc(100vh - 390px);

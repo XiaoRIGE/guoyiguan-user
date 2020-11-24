@@ -109,7 +109,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .patientReview {
   margin-top: 40px;
   .container-wrap {

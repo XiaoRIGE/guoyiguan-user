@@ -152,7 +152,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 .login {
   position: relative;
   width: 100%;

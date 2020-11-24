@@ -19,7 +19,7 @@
       >
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="info" label="商品信息" width="180">
-          <template slot-scope="scope">
+          <template scoped >
             <div class="info-box">
               <img class="good-logo" :src="scope.row.logo" alt="" />
               <span>{{ scope.row.info }}</span>
@@ -29,7 +29,7 @@
         <el-table-column prop="name" label="單價" width="180">
         </el-table-column>
         <el-table-column prop="number" label="數量">
-          <template slot-scope="scope">
+          <template scoped >
             <el-input-number
               v-model="scope.row.number"
               @change="handleChange(scope)"
@@ -42,7 +42,7 @@
         <el-table-column prop="price" label="金額"> </el-table-column>
         <el-table-column prop="yunfei" label="運費"> </el-table-column>
         <el-table-column prop="number" label="操作">
-          <template slot-scope="scope">
+          <template scoped >
             <el-button class="del-btn" @click="handleDelete(scope.row)"
               >刪除</el-button
             >
@@ -133,7 +133,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped  lang="scss">
 .shopCart {
   .container-wrap {
     padding: 40px 30px;

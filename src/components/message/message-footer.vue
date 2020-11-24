@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped >
 .right {
   display: flex;
   flex-direction: row-reverse;
